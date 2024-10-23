@@ -1,5 +1,6 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
+import 'package:fitzone_app/screens/conta_screen/widgets/ButtonMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,35 +27,42 @@ class ContaScreen extends StatelessWidget {
                 height: defaultSpacing,
               ),
               const Status(),
-              const SizedBox(height: largeSpacing,),
+              const SizedBox(
+                height: largeSpacing,
+              ),
               const nivel(),
-              const SizedBox(height: extraLargeSpacing,),
+              const SizedBox(
+                height: extraLargeSpacing,
+              ),
               Column(
-                
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text("FITZONE"),
-                  const SizedBox(height: minorSpacing,),
-                Container (
-                  height: 250,
-                  width: double.infinity,
-                  
-                  decoration: BoxDecoration(
-                   color: Theme.of(context).colorScheme.surfaceContainer,
-                    border: 
-                  Border.all(color: Theme.of(context).colorScheme.surfaceContainerLow),
-                  borderRadius: const BorderRadius.all(Radius.circular(16)),),
-                  child: 
-                  Column(
-                    children: [
-                    ButtonMenuConta(),
-                     ButtonMenuConta(),
-                      ButtonMenuConta(),
-                       ButtonMenuConta(),
-                        ButtonMenuConta(),
-                  ],)
-                ),
+                  const SizedBox(
+                    height: minorSpacing,
+                  ),
+                  Container(
+                      height: 250,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.surfaceContainer,
+                        border: Border.all(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerLow),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(16)),
+                      ),
+                      child: Column(
+                        children: [
+                          ButtonMenu(title: "Evolução",),
+                          ButtonMenu(title: "Pagamento"),
+                          ButtonMenu(title: "Treinos"),
+                          ButtonMenu(title:"Professor"),
+                          ButtonMenu(title: "Configurações"),
+                        ],
+                      )),
                 ],
               )
             ],
@@ -72,34 +80,6 @@ class ContaScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class ButtonMenuConta extends StatelessWidget {
-  const ButtonMenuConta({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(onPressed: () {}, 
-    child:  Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            Icon(Icons.emoji_emotions_outlined, 
-            color: Theme.of(context).colorScheme.onSurface,
-            size: 20),
-            const SizedBox(width: 10),
-            Text("EVOLUÇÃO", style: Theme.of(context).textTheme.bodyMedium),
-          ],
-        ),
-        Icon(Icons.arrow_forward_ios, 
-        color: Theme.of(context).colorScheme.onSurface, size: 12,),
-        
-      ],
-    ));
   }
 }
 
@@ -121,12 +101,12 @@ class nivel extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text("Nível ",
-                  style: TextStyle(
-                      fontSize: 12, )),
+                    style: TextStyle(
+                      fontSize: 12,
+                    )),
                 Text(
                   "CLASSIC",
-                  style: TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -136,11 +116,10 @@ class nivel extends StatelessWidget {
               children: [
                 Text(
                   "100",
-                  style: TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 ),
-                Text(" pontos acumulados",style: 
-                    TextStyle(
+                Text(" pontos acumulados",
+                    style: TextStyle(
                       fontSize: 12,
                     ))
               ],
@@ -148,13 +127,13 @@ class nivel extends StatelessWidget {
             // Container(
             //   height: 20,
             //   width: double.infinity,
-            //   decoration: 
+            //   decoration:
             //   BoxDecoration(
             //     color: Theme.of(context).colorScheme.primary,
             //     shape: BoxShape.rectangle,
 
             //   ),
-             
+
             // ),
           ],
         )
