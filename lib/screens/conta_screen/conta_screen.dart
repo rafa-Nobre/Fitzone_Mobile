@@ -54,9 +54,9 @@ class ContaScreen extends StatelessWidget {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16)),
                       ),
-                      child: Column(
+                      child: const Column(
                         children: [
-                          ButtonMenu(title: "Evolução",),
+                          ButtonMenu(title: "Evolução", ),
                           ButtonMenu(title: "Pagamento"),
                           ButtonMenu(title: "Treinos"),
                           ButtonMenu(title:"Professor"),
@@ -91,12 +91,12 @@ class nivel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: const [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Row(
+            Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -110,7 +110,7 @@ class nivel extends StatelessWidget {
                 ),
               ],
             ),
-            const Row(
+            Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
