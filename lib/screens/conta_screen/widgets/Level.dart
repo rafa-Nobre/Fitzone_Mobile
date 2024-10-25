@@ -2,16 +2,29 @@ import 'package:fitzone_app/screens/conta_screen/widgets/GraphLevel.dart';
 import 'package:flutter/material.dart';
 
 class Level extends StatelessWidget {
-  const Level({
+   Level({
+    required this.level,
     super.key,
   });
+
+  final int level;
+
+   final List<Color> colors = [
+     const Color.fromARGB(255, 76, 114, 0),
+    const Color.fromARGB(255, 99, 148, 1),
+    const Color.fromARGB(255, 120, 179, 2),
+    const Color.fromARGB(255, 146, 220, 0),
+    const Color.fromARGB(199, 170, 255, 0),
+  ];
 
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Column(
-      children: const [
-        Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -47,28 +60,13 @@ class Level extends StatelessWidget {
         ),
         Stack(
           alignment: Alignment.topLeft,
-          children: [
-            GraphLevel(
-              color: Color.fromARGB(199, 170, 255, 0),
-              width: 63 * 5,
-            ),
-            GraphLevel(
-              color: Color.fromARGB(255, 146, 220, 0),
-              width: 63 * 4,
-            ),
-            GraphLevel(
-              color: Color.fromARGB(255, 120, 179, 2),
-              width: 63 * 3,
-            ),
-            GraphLevel(
-              color: Color.fromARGB(255, 99, 148, 1),
-              width: 63 * 2,
-            ),
-            GraphLevel(
-              color: Color.fromARGB(255, 76, 114, 0),
-              width: 63,
-            )
-          ],
+          children: List.generate(level, (index){
+            return GraphLevel(
+              color: colors[index],
+              index: index,
+              width: 63* (index+1),
+              );
+          }),
         )
       ],
     );

@@ -1,7 +1,6 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/common/widgets/GoBackButton.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/ButtonMenu.dart';
 import 'package:fitzone_app/screens/conta_screen/widgets/Footer.dart';
 import 'package:fitzone_app/screens/conta_screen/widgets/Level.dart';
 import 'package:fitzone_app/screens/conta_screen/widgets/Menu.dart';
@@ -25,26 +24,26 @@ class ContaScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: 24, right: 24),
         width: double.infinity,
         color: Theme.of(context).colorScheme.background,
-        child: const Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(children: [
-                Profileinfo(),
-                  SizedBox(
+                const Profileinfo(),
+                  const SizedBox(
                     height: defaultSpacing,
                   ),
-                  Registrationstatus(),
-                  SizedBox(
+                  const Registrationstatus(),
+                  const SizedBox(
                     height: largeSpacing,
                   ),
-                  Level(),
-                  SizedBox(
+                  Level(level: 4,),
+                  const SizedBox(
                     height: largeSpacing,
                   ),
-                  Menu(),
+                  const Menu(),
               ],),
-              Footer()
+              const Footer()
             ],
           ),
         ),

@@ -1,6 +1,6 @@
 
 import 'package:fitzone_app/common/theme/theme_provider.dart';
-import 'package:fitzone_app/screens/conta_screen/conta_screen.dart';
+import 'package:fitzone_app/screens/conta_screen/account_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FitZone',
-      home:  MyHomePage(title: 'Flutter Demo Home Page'),
+      home:  const MyHomePage(title: 'Flutter Demo Home Page'),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
@@ -39,6 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ContaScreen();
+    return const ContaScreen();
   }
 }

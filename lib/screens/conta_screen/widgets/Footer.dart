@@ -16,7 +16,7 @@ class Footer extends StatelessWidget {
           color: Theme.of(context).colorScheme.onSecondary,
           fontSize: 12,
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Link(
             title: "Termos de Serviço",
             color: Theme.of(context).colorScheme.onSecondary,
