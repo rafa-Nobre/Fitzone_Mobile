@@ -1,4 +1,4 @@
-import 'package:fitzone_app/screens/conta_screen/widgets/GraphLevel.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/GraphLevel.dart';
 import 'package:flutter/material.dart';
 
 class Level extends StatelessWidget {

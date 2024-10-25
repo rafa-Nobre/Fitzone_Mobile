@@ -1,11 +1,11 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/common/widgets/GoBackButton.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/Footer.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/Level.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/Menu.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/ProfileInfo.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/RegistrationStatus.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/Footer.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/Level.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/Menu.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/ProfileInfo.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/RegistrationStatus.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

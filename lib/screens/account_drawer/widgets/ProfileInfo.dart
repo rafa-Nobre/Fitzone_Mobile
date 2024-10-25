@@ -1,3 +1,4 @@
+import 'package:fitzone_app/common/widgets/Photo.dart';
 import 'package:flutter/material.dart';
 
 class Profileinfo extends StatelessWidget {
@@ -12,12 +13,7 @@ class Profileinfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50), color: Colors.red),
-          ),
+          Photo(),
           const SizedBox(width: 10),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

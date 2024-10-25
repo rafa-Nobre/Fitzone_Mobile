@@ -1,4 +1,4 @@
-import 'package:fitzone_app/screens/conta_screen/widgets/Link.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/Link.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {

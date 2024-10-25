@@ -1,5 +1,5 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
-import 'package:fitzone_app/screens/conta_screen/widgets/ButtonMenu.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/ButtonMenu.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
