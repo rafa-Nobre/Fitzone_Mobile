@@ -37,7 +37,7 @@ class ContaScreen extends StatelessWidget {
                   const SizedBox(
                     height: largeSpacing,
                   ),
-                  Level(level: 4,),
+                  Level(points: 100,),
                   const SizedBox(
                     height: largeSpacing,
                   ),

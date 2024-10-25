@@ -3,11 +3,28 @@ import 'package:flutter/material.dart';
 
 class Level extends StatelessWidget {
    Level({
-    required this.level,
+    required this.points,
     super.key,
   });
 
-  final int level;
+ final _resultLevel = ["FRANGO", "CLASSIC","SHAPEADO","MONSTRO", "BODYBUILDER"];
+  int _level = 1;
+
+  final int points;
+
+  int _defineLevel() {
+    if (points <=20) {
+      return this._level = 1;
+    } else if (points <= 40) {
+      return this._level = 2;
+    } else if (points <= 60) {
+      return this._level = 3;
+    } else if (points <= 80) {
+      return this._level = 4;
+    } else {
+      return this._level = 5;
+    }
+  }
 
    final List<Color> colors = [
      const Color.fromARGB(255, 76, 114, 0),
@@ -19,25 +36,25 @@ class Level extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
+_defineLevel();
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Row(
+         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row(
+             Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("Nível ",
+                const Text("Nível ",
                     style: TextStyle(
                       fontSize: 12,
                     )),
                 Text(
-                  "CLASSIC",
+                  _resultLevel[_level-1],
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 ),
               ],
@@ -47,10 +64,10 @@ class Level extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "100",
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                  points.toString(),
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 ),
-                Text(" pontos acumulados",
+                const Text(" pontos acumulados",
                     style: TextStyle(
                       fontSize: 12,
                     ))
@@ -60,11 +77,11 @@ class Level extends StatelessWidget {
         ),
         Stack(
           alignment: Alignment.topLeft,
-          children: List.generate(level, (index){
+          children: List.generate(_defineLevel(), (index){
+            final level = _defineLevel();
             return GraphLevel(
-              color: colors[index],
-              index: index,
-              width: 63* (index+1),
+              color: colors[level-index-1],
+              width: 63* (level-index).toDouble(),
               );
           }),
         )
