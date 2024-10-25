@@ -1,6 +1,5 @@
 import 'package:fitzone_app/common/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ThemeProvider with ChangeNotifier {
 
@@ -17,7 +16,7 @@ class ThemeProvider with ChangeNotifier {
     _themeData = _themeData == lightMode 
     ? darkMode 
     : lightMode;
-      notifyListeners();
+    notifyListeners();
   }
   
 }

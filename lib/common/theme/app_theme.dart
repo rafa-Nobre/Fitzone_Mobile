@@ -4,16 +4,18 @@ import 'colors.dart';
 ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
     colorScheme: ColorScheme.light(
-      brightness: Brightness.light,
       background: backgroundLight,
+      brightness: Brightness.light,
       surface: background2Light,
+      surfaceContainer: background2Light,
       primary: themeColorLight,
       secondary: themeColor2Light,
       onPrimary: textLight,
       onSecondary: textPlaceholderLight,
-      onBackground: textLight,
+      onSurface: textLight,
       inversePrimary: textLight,
       onInverseSurface: textDark,
+      surfaceContainerLow: borderLight
     ),
      textTheme: TextTheme(
     headlineMedium: TextStyle(
@@ -32,6 +34,10 @@ ThemeData lightMode = ThemeData(
       color: textLight,
       fontSize: 12,
     ),
+       displayLarge: TextStyle(
+        color: themeColor2Light,
+        fontSize: 16,
+      )
   ),
    appBarTheme: AppBarTheme(
     backgroundColor: backgroundLight,
@@ -46,20 +52,22 @@ ThemeData lightMode = ThemeData(
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
   colorScheme: ColorScheme.light(
-    brightness: Brightness.dark,
     background: backgroundDark,
+    surfaceContainer: background2Dark,
+    brightness: Brightness.dark,
     surface: background2Dark,
     primary: themeColorDark,
     secondary: themeColor2Dark,
     onPrimary: textDark,
     onSecondary: textPlaceholderDark,
-    onBackground: textDark,
+    onSurface: textDark,
     inversePrimary: textLight,
     onInverseSurface: textLight,
+    surfaceContainerLow: borderDark
   ),
   appBarTheme: AppBarTheme(
     backgroundColor: backgroundDark,
-    titleTextStyle: TextStyle(
+    titleTextStyle: const TextStyle(
       color: Colors.white,
       fontSize: 18,
     ),
@@ -81,7 +89,13 @@ ThemeData darkMode = ThemeData(
       color: textDark,
       fontSize: 12,
     ),
+    displayLarge: TextStyle(
+      color: themeColor2Light,
+      fontSize: 16,
+    )
   ),
+  fontFamily: 'Lato',
+
 );
 
 
