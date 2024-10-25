@@ -1,6 +1,7 @@
 
 import 'package:fitzone_app/common/theme/theme_provider.dart';
-import 'package:fitzone_app/screens/conta_screen/account_drawer.dart';
+import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
+import 'package:fitzone_app/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return const ContaScreen();
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        color: Theme.of(context).colorScheme.background,
+        padding:  EdgeInsets.only(left: 24, right: 24),
+        child:  SearchScreen()),
+    );
   }
 }
