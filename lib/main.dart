@@ -3,6 +3,7 @@ import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/search_screen/search_screen.dart';
 import 'package:fitzone_app/screens/signin_screen/signin_screen.dart';
+import 'package:fitzone_app/screens/signout_screen/signout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
