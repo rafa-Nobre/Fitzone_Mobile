@@ -14,7 +14,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _pageIndex = 0;
 
-  
+  void changePage(int currentIndex) {
+    setState(() {
+      _pageIndex = currentIndex;
+    });
+  }
 
   Widget _screenBuilder(int index) {
     switch (index) {
@@ -29,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,18 +40,28 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: const [NotificationButton(), SizedBox(width: 10), Photo()],
       ),
       body: _screenBuilder(_pageIndex),
-      bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _pageIndex,
+        onTap: (currentIndex) => changePage(currentIndex),
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        showUnselectedLabels: true,
+        unselectedItemColor: Colors.black,
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: "",
+            icon: Icon(Icons.search),
+            label: "Pesquisar",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Notificações",
+            icon: Icon(Icons.rocket_launch),
+            label: "Progresso",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: "Perfil",
           ),
         ],
       ),
