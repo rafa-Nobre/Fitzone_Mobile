@@ -7,34 +7,51 @@ import 'package:provider/provider.dart';
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
-  @override
+@override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
-      elevation: 0,
-      leading: _buildBackButton(),
-    ),
-    body: SingleChildScrollView(
-      child: Container(
-        width: double.infinity,
-        // padding: const EdgeInsets.symmetric(horizontal: 16), // Optional padding for content
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(16),
+    body: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          elevation: 0,
+          leading: _buildBackButton(),
+          pinned: true, // Keeps the app bar visible at the top
+          expandedHeight: 150.0, // Height for the expanded area
+          flexibleSpace: FlexibleSpaceBar(
+            title: const Text(
+              "Criar conta",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+              ),
+            ),
+            background: Container(
+              color: Theme.of(context).colorScheme.surface,
+              child: const Header(title: ""),
+            ),
+          ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // const SizedBox(height: 50), // Top padding if needed
-            const Header(title: "Criar conta"),
-            const SizedBox(height: 16),
-            const FormSection(),
-            const SizedBox(height: 32),
-            _buildFooter(),
-          ],
+        SliverToBoxAdapter(
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 16),
+                const FormSection(),
+                const SizedBox(height: 32),
+                _buildFooter(),
+              ],
+            ),
+          ),
         ),
-      ),
+      ],
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {
