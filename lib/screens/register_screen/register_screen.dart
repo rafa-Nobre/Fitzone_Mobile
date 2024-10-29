@@ -1,11 +1,11 @@
 import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/header.dart';
-import 'package:fitzone_app/screens/signout_screen/widgets/form_section.dart';
+import 'package:fitzone_app/screens/register_screen/widgets/form_section.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignOutScreen extends StatelessWidget {
-  const SignOutScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
 Widget build(BuildContext context) {
