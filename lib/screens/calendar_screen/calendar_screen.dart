@@ -35,14 +35,13 @@ class _CalendarScreenState extends State<CalendarScreen> {
         title: const Text("Atividades"),
         surfaceTintColor: Theme.of(context).colorScheme.primary,
         backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: const [
-          NotificationButton(),
-          SizedBox(width: 10),
-          ProfileWidget(),
-          SizedBox(width: 10)
-        ],
+        // actions: const [
+        //   NotificationButton(),
+        //   SizedBox(width: 10),
+        //   ProfileWidget(),
+        //   SizedBox(width: 10)
+        // ],
       ),
-      endDrawer: const AccountDrawer(),
       body: Stack(
         children: [
           Container(

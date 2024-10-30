@@ -17,12 +17,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _pageIndex = 0;
-  late final UserModel _usuario;
+  late UserModel currentUser;
 
   @override
   void initState() {
     super.initState();
-    _usuario = widget._usuario;
+    currentUser = widget._usuario;
   }
 
   void changePage(int currentIndex) {
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _screenBuilder(int index) {
     switch (index) {
       case 0:
-        return  HomeWidget(usuario:_usuario);
+        return  HomeWidget(currentUser: currentUser);
       case 1:
         return const SearchScreen();
       case 2:
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).colorScheme.tertiary,
         actions: const [NotificationButton(), SizedBox(width: 10), ProfileWidget(), SizedBox(width: 10)],
       ),
-      drawer: const AccountDrawer(),
+      drawer: AccountDrawer(profileUser: currentUser),
       body: _screenBuilder(_pageIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex,

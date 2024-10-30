@@ -5,9 +5,12 @@ import 'package:fitzone_app/screens/account_drawer/widgets/menu_widget.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/profile_info.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/registration_status.dart';
 import 'package:flutter/material.dart';
+import '../../core/models/user_model.dart';
 
 class AccountDrawer extends StatelessWidget {
-  const AccountDrawer({super.key});
+  const AccountDrawer({super.key, required this.profileUser});
+
+  final UserModel profileUser;
 
   @override
   Widget build(BuildContext context) {
@@ -17,29 +20,29 @@ class AccountDrawer extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: defaultSpacing),
           color: Theme.of(context).colorScheme.tertiary,
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 children: [
-                  ProfileInfo(),
-                  SizedBox(
+                  ProfileInfo(profileUser: profileUser),
+                  const SizedBox(
                     height: defaultSpacing,
                   ),
-                  RegistrationStatus(),
-                  SizedBox(
+                  const RegistrationStatus(),
+                  const SizedBox(
                     height: largeSpacing,
                   ),
-                  LevelWidget(
+                  const LevelWidget(
                     points: 100,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: largeSpacing,
                   ),
-                  MenuWidget(),
+                  const MenuWidget(),
                 ],
               ),
-              AccountFooter()
+              const AccountFooter()
             ],
           ),
         ),

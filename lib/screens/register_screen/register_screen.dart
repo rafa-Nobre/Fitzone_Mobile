@@ -1,16 +1,17 @@
 import 'package:fitzone_app/common/widgets/form_widgets/header.dart';
-import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/screens/register_screen/widgets/form_section.dart';
 import 'package:flutter/material.dart';
 
-class RegisterScreen extends StatelessWidget {
-   RegisterScreen({
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({
     super.key,
-    required List<UserModel> listaUsuarios,
-  }) : _listaUsuarios = listaUsuarios;
+  });
 
-List<UserModel> _listaUsuarios = [];
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
 
+class _RegisterScreenState extends State<RegisterScreen> {
 @override
 Widget build(BuildContext context) {
   return Scaffold(
@@ -66,7 +67,6 @@ Widget build(BuildContext context) {
     // ),
   );
 }
-
 
   Widget _buildFooter() {
     return const Padding(

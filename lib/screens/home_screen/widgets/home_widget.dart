@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class HomeWidget extends StatefulWidget {
    final UserModel _usuario;
 
-  const HomeWidget({required UserModel usuario, super.key}) : _usuario = usuario;
+  const HomeWidget({required UserModel currentUser, super.key}) : _usuario = currentUser;
 
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
@@ -55,7 +55,7 @@ void initState() {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ConstrainedBox(
-                        constraints: BoxConstraints(minWidth: 120), // Set minimum width
+                        constraints: const BoxConstraints(minWidth: 120),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.surfaceContainerLow,
@@ -86,7 +86,7 @@ void initState() {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ConstrainedBox(
-                        constraints: BoxConstraints(minWidth: 120), // Set minimum width
+                        constraints: const BoxConstraints(minWidth: 120),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.surfaceContainerLow,
@@ -117,7 +117,7 @@ void initState() {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ConstrainedBox(
-                        constraints: BoxConstraints(minWidth: 120), // Set minimum width
+                        constraints: const BoxConstraints(minWidth: 120),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.surfaceContainerLow,
@@ -152,62 +152,63 @@ void initState() {
                 height: 200,
                 width: 350,
                 decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(28)),
+                    BoxDecoration(borderRadius: BorderRadius.circular(28), color: Colors.green),
                 child: Stack(
                   children: [
                     Image.asset('assets/images/image.png'),
                     Image.asset('assets/images/overlay.png'),
                     Padding(
                       padding: const EdgeInsets.all(25.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Veja seu treino\nde hoje",
-                            style: TextStyle(color: Colors.white, fontSize: 28),
-                          ),
-                          const SizedBox(
-                            height: 35,
-                          ),
-                          Row(
-                            children: [
-                              const Row(
-                                children: [
-                                  Text(
-                                    "Ver mais",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(162, 199, 46, 1)),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios_outlined,
-                                    color: Color.fromRGBO(162, 199, 46, 1),
-                                    size: 10,
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                width: 150,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(3.0),
-                                  child: Row(
+                      child: Container(
+                        color: Colors.black,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Veja seu treino\nde hoje",
+                              style: TextStyle(color: Colors.white, fontSize: 28),
+                            ),
+                            const SizedBox(
+                              height: 35,
+                            ),
+                            Row(
+                              children: [
+                                const Row(
+                                  children: [
+                                    Text(
+                                      "Ver mais",
+                                      style: TextStyle(
+                                          color: Color.fromRGBO(162, 199, 46, 1)),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      color: Color.fromRGBO(162, 199, 46, 1),
+                                      size: 10,
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(
+                                  width: 150,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(3.0),
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: const Row(
                                     children: [
                                       Icon(Icons.timer_outlined, size: 13),
                                       Text(" 50 min")
                                     ],
                                   ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],

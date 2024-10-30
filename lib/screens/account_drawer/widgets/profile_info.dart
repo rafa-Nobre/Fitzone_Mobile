@@ -1,11 +1,14 @@
 import 'package:fitzone_app/common/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
+import '../../../core/models/user_model.dart';
 
 class ProfileInfo extends StatelessWidget {
   const ProfileInfo({
-    super.key,
+    super.key, required this.profileUser,
   });
 
+  final UserModel profileUser;
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,11 +23,11 @@ class ProfileInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Fulano Beltrano',
+                profileUser.name,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               Text(
-                'fulanobeltrano@email.com',
+                profileUser.email,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 4),

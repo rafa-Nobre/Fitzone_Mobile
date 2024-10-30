@@ -2,41 +2,43 @@ import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 
-class FormSection extends StatelessWidget {
-   FormSection({super.key});
-   
-  TextEditingController _matricula = TextEditingController();
-  TextEditingController _nome = TextEditingController();
-  TextEditingController _cpf = TextEditingController(); 
-  TextEditingController _apelido = TextEditingController();
-  TextEditingController _email = TextEditingController();
-  TextEditingController _senha = TextEditingController();
-  TextEditingController _confirmarSenha = TextEditingController();
+class FormSection extends StatefulWidget {
+  const FormSection({super.key});
 
-void signUp () {
-
+  @override
+  State<FormSection> createState() => _FormSectionState();
 }
+
+class _FormSectionState extends State<FormSection> {
+  final TextEditingController _matricula = TextEditingController();
+  final TextEditingController _nome = TextEditingController();
+  final TextEditingController _cpf = TextEditingController(); 
+  final TextEditingController _apelido = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _senha = TextEditingController();
+  final TextEditingController _confirmarSenha = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16), // Top margin with padding
+      padding: const EdgeInsets.only(left: 16, right: 16),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             InputField(controller: _matricula , placeholder: 'Matrícula'),
+            InputField(controller: _matricula , placeholder: 'Matrícula'),
             const SizedBox(height: 8),
             InputField(controller: _nome , placeholder: 'Nome Completo'),
             const SizedBox(height: 8),
             InputField(controller: _cpf, placeholder: 'CPF'),
             const SizedBox(height: 8),
-             InputField(controller: _apelido, placeholder: 'Como você gostaria de ser chamado?'),
+            InputField(controller: _apelido, placeholder: 'Como você gostaria de ser chamado?'),
             const SizedBox(height: 8),
-             InputField(controller:_email, placeholder: 'Email'),
+            InputField(controller:_email, placeholder: 'Email'),
             const SizedBox(height: 8),
-             InputField(controller: _senha, placeholder: 'Senha', isPassword: true),
+            InputField(controller: _senha, placeholder: 'Senha', isPassword: true),
             const SizedBox(height: 8),
-             InputField(controller: _confirmarSenha, placeholder: 'Confirmar senha', isPassword: true),
+            InputField(controller: _confirmarSenha, placeholder: 'Confirmar senha', isPassword: true),
             const SizedBox(height: 8),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

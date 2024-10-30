@@ -2,33 +2,38 @@ import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
+import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
-class FormSection extends StatelessWidget {
-
-final List<UserModel> _listaUsuarios;
-
-   FormSection({
+class FormSection extends StatefulWidget {
+  const FormSection({
     super.key,  
-    required List<UserModel> listaUsuarios,
-  }) : _listaUsuarios = listaUsuarios;
+    required this.userModel,
+  });
 
+  final UserModel userModel;
+
+  @override
+  State<FormSection> createState() => _FormSectionState();
+}
+
+class _FormSectionState extends State<FormSection> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
+  void signIn(BuildContext context) {
+    if (widget.userModel.email == _email.text &&
+        widget.userModel.password == _password.text) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => HomeScreen(usuario: widget.userModel),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    void signIn() {
-      for (var user in _listaUsuarios) {
-        if (user.email == _email.text && user.password == _password.text) {
-          Navigator.of(context).pushNamed(RoutesConsts.home, arguments: user);
-          
-        }
-      }
-   
-    }
-
     return Positioned(
       left: 0,
       right: 0,
@@ -50,7 +55,7 @@ final List<UserModel> _listaUsuarios;
             ),
             const SizedBox(height: 24),
             ElevatedButton(
-              onPressed: signIn,
+              onPressed: () => signIn(context),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 minimumSize: const Size(double.infinity, 52),
@@ -71,10 +76,8 @@ final List<UserModel> _listaUsuarios;
             Row(
               children: [
                 TextButton(
-                  onPressed:  () => Navigator.of(context)
-                  .pushNamed(
-                    RoutesConsts.signUp,
-                    arguments:  _listaUsuarios),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(RoutesConsts.signUp),
                   child: Text(
                     "Registrar-se",
                     style: TextStyle(

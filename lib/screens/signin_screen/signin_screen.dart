@@ -3,9 +3,15 @@ import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/screens/signin_screen/widgets/form_section.dart';
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
- SignInScreen({super.key}) {
-  final UserModel user1 = UserModel(
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  final _userMock = UserModel(
     id: 1,
     registrationId: 'reg123',
     name: 'fulano',
@@ -17,13 +23,9 @@ class SignInScreen extends StatelessWidget {
     level: 1,
     activities: [],
   );
-  _listaUsuarios.add(user1);
-}
 
-final List<UserModel> _listaUsuarios = [];
-
-@override
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -39,8 +41,8 @@ Widget build(BuildContext context) {
         child: Stack(
           children: [
             const Header(title: "Bem vindo(a)!",),
-            FormSection(listaUsuarios: _listaUsuarios,),
-             _buildFooter(),
+            FormSection(userModel: _userMock),
+            _buildFooter(),
           ],
         ),
       ),
