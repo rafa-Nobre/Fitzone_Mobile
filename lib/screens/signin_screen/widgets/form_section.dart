@@ -1,5 +1,6 @@
 import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
+import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 
 class FormSection extends StatelessWidget {
@@ -28,7 +29,7 @@ class FormSection extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed(RoutesConsts.home),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 minimumSize: const Size(double.infinity, 52),
@@ -48,6 +49,15 @@ class FormSection extends StatelessWidget {
             const SizedBox(height: 16),
             Row(
               children: [
+                TextButton(
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(RoutesConsts.signUp),
+                  child: Text(
+                    "Registrar-se",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface),
+                  ),
+                ),
                 const Spacer(),
                 Align(
                   alignment: Alignment.centerRight,

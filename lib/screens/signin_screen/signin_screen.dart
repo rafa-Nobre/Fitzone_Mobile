@@ -1,8 +1,6 @@
-import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/header.dart';
 import 'package:fitzone_app/screens/signin_screen/widgets/form_section.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -13,7 +11,6 @@ class SignInScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.secondary,
         elevation: 0,
-        leading: _buildBackButton(),
       ),
       body: Container(
         width: double.infinity,
@@ -30,16 +27,16 @@ class SignInScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-        },
-        tooltip: 'Increment',
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        child: const Icon(
-          Icons.add,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+      //   },
+      //   tooltip: 'Increment',
+      //   foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+      //   child: const Icon(
+      //     Icons.add,
+      //   ),
+      // ),
     );
   }
 
@@ -56,17 +53,6 @@ class SignInScreen extends StatelessWidget {
           fontSize: 12,
           height: 1.5,
         ),
-      ),
-    );
-  }
-
-  Widget _buildBackButton() {
-    return Positioned(
-      top: 40,
-      left: 16,
-      child: IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.arrow_back, color: Colors.black),
       ),
     );
   }

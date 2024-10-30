@@ -1,6 +1,8 @@
 import 'package:fitzone_app/common/widgets/notification_button.dart';
 import 'package:fitzone_app/common/widgets/photo.dart';
+import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/home_screen/widgets/home_widget.dart';
+import 'package:fitzone_app/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,8 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return const HomeWidget();
       case 1:
-        return const SizedBox();
+        return const SearchScreen();
       case 2:
+        return const SizedBox();
+      case 3:
         return const SizedBox();
       default:
         return const SizedBox();
@@ -40,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).colorScheme.tertiary,
         actions: const [NotificationButton(), SizedBox(width: 10), Photo(), SizedBox(width: 10)],
       ),
+      drawer: const AccountDrawer(),
       body: _screenBuilder(_pageIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex,

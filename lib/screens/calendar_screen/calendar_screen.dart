@@ -1,4 +1,5 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
+import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/calendar_screen/widgets/event_card.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -34,13 +35,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
         title: const Text("Atividades"),
         surfaceTintColor: Theme.of(context).colorScheme.primary,
         backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: const [
+        actions: [
           NotificationButton(),
           SizedBox(width: 10),
-          Photo(),
+          GestureDetector(onTap: () => ScaffoldState().openEndDrawer(), child: Photo()),
           SizedBox(width: 10)
         ],
       ),
+      endDrawer: const AccountDrawer(),
       body: Stack(
         children: [
           Container(

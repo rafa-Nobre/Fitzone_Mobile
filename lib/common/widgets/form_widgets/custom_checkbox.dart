@@ -9,7 +9,7 @@ class CustomCheckbox extends StatefulWidget {
   });
 
   @override
-  _CustomCheckboxState createState() => _CustomCheckboxState();
+  State<CustomCheckbox> createState() => _CustomCheckboxState();
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
@@ -30,7 +30,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
           },
         ),
         Text(
-          widget.labelText, // Use the labelText from the widget
+          widget.labelText,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
             fontSize: 12,

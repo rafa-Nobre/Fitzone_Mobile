@@ -11,16 +11,20 @@ class AccountFooter extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        LinkText(
-          title: "Política de Privacidade",
-          color: Theme.of(context).colorScheme.onSecondary,
-          fontSize: 12,
+        Flexible(
+          child: LinkText(
+            title: "Política de Privacidade",
+            color: Theme.of(context).colorScheme.onSecondary,
+            fontSize: 12,
+          ),
         ),
         const SizedBox(width: 10),
-        LinkText(
-            title: "Termos de Serviço",
-            color: Theme.of(context).colorScheme.onSecondary,
-            fontSize: 12),
+        Flexible(
+          child: LinkText(
+              title: "Termos de Serviço",
+              color: Theme.of(context).colorScheme.onSecondary,
+              fontSize: 12),
+        ),
       ],
     );
   }
