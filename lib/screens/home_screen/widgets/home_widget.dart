@@ -36,96 +36,105 @@ class _HomeWidgetState extends State<HomeWidget> {
                       .textTheme
                       .bodyLarge!
                       .copyWith(fontSize: 25)),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color:
-                            Theme.of(context).colorScheme.surfaceContainerLow,
-                        borderRadius: BorderRadius.circular(
-                            28), // Define o arredondamento
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Container(
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  borderRadius: BorderRadius.circular(
-                                      28), // Define o arredondamento
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(Icons.calendar_month_outlined,
-                                      size: 13),
-                                )),
-                            Text("  Calendário",
-                                style: Theme.of(context).textTheme.bodySmall)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surfaceContainerLow,
-                      borderRadius:
-                          BorderRadius.circular(28), // Define o arredondamento
-                    ),
-                    child: Padding(
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Container(
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.primary,
-                                borderRadius: BorderRadius.circular(
-                                    28), // Define o arredondamento
-                              ),
-                              child: const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Icon(Icons.directions_bike, size: 13),
-                              )),
-                          Text("  Atividades",
-                              style: Theme.of(context).textTheme.bodySmall)
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color:
-                            Theme.of(context).colorScheme.surfaceContainerLow,
-                        borderRadius: BorderRadius.circular(
-                            28), // Define o arredondamento
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Container(
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  borderRadius: BorderRadius.circular(
-                                      28), // Define o arredondamento
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(minWidth: 120), // Set minimum width
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.surfaceContainerLow,
+                            borderRadius: BorderRadius.circular(28),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).colorScheme.primary,
+                                    borderRadius: BorderRadius.circular(28),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(Icons.calendar_month_outlined, size: 13),
+                                  ),
                                 ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(Icons.fitness_center, size: 13),
-                                )),
-                            Text("  Treinos",
-                                style: Theme.of(context).textTheme.bodySmall)
-                          ],
+                                Text("  Calendário",
+                                    style: Theme.of(context).textTheme.bodySmall),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(minWidth: 120), // Set minimum width
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.surfaceContainerLow,
+                            borderRadius: BorderRadius.circular(28),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).colorScheme.primary,
+                                    borderRadius: BorderRadius.circular(28),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(Icons.directions_bike, size: 13),
+                                  ),
+                                ),
+                                Text("  Atividades",
+                                    style: Theme.of(context).textTheme.bodySmall),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(minWidth: 120), // Set minimum width
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.surfaceContainerLow,
+                            borderRadius: BorderRadius.circular(28),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).colorScheme.primary,
+                                    borderRadius: BorderRadius.circular(28),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(Icons.fitness_center, size: 13),
+                                  ),
+                                ),
+                                Text("  Treinos",
+                                    style: Theme.of(context).textTheme.bodySmall),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Container(
                 height: 200,
@@ -175,7 +184,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10)),
                                 child: const Padding(
-                                  padding: EdgeInsets.all(6.0),
+                                  padding: EdgeInsets.all(3.0),
                                   child: Row(
                                     children: [
                                       Icon(Icons.timer_outlined, size: 13),
