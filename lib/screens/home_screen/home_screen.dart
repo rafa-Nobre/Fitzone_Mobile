@@ -37,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: const [NotificationButton(), SizedBox(width: 10), Photo()],
+        surfaceTintColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        actions: const [NotificationButton(), SizedBox(width: 10), Photo(), SizedBox(width: 10)],
       ),
       body: _screenBuilder(_pageIndex),
       bottomNavigationBar: BottomNavigationBar(
