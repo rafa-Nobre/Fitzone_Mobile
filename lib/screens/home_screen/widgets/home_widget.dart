@@ -16,6 +16,11 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   late final UserModel _usuario;
 
+@override
+void initState() {
+  super.initState();
+  _usuario = widget._usuario;
+}
   
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     text: "Olá,",
                     style: Theme.of(context).textTheme.bodyMedium),
                 TextSpan(
-                    text: " Fulano\u00A0",
+                    text: _usuario.nickName,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         backgroundColor: Theme.of(context).colorScheme.primary))
               ])),
