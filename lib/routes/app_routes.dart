@@ -7,9 +7,9 @@ import 'package:flutter/widgets.dart';
 import 'routes_consts.dart';
 
 final Map<String, Widget Function(BuildContext)> appRoutes = {
-  RoutesConsts.root: (context) => const SignInScreen(),
-  RoutesConsts.signUp: (context) => const RegisterScreen(),
-  RoutesConsts.home: (context) => const HomeScreen(),
+  RoutesConsts.root: (context) =>  SignInScreen(),
+  RoutesConsts.signUp: (context) =>  RegisterScreen(listaUsuarios: [],),
+  RoutesConsts.home: (context) => const HomeScreen(usuario: ,),
   RoutesConsts.calendar: (context) => const CalendarScreen(),
   RoutesConsts.search: (context) => const SearchScreen(),
 };

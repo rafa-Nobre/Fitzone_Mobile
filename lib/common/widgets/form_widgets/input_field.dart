@@ -3,17 +3,20 @@ import 'package:flutter/material.dart';
 class InputField extends StatelessWidget {
   final String placeholder;
   final bool isPassword;
+  TextEditingController _controller;
 
-  const InputField({
+   InputField({
     super.key,
+    required TextEditingController controller,
     required this.placeholder,
     this.isPassword = false,
-  });
+  }) : _controller = controller;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       obscureText: isPassword,
+      controller: _controller,
       decoration: InputDecoration(
         hintText: placeholder,
         hintStyle: TextStyle(

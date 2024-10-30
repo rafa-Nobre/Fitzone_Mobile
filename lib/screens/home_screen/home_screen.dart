@@ -1,12 +1,15 @@
 import 'package:fitzone_app/common/widgets/notification_button.dart';
 import 'package:fitzone_app/common/widgets/profile_widget.dart';
+import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/home_screen/widgets/home_widget.dart';
 import 'package:fitzone_app/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final UserModel _usuario;
+
+  const HomeScreen({required UserModel usuario, super.key}) : _usuario = usuario;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -14,6 +17,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _pageIndex = 0;
+  late final UserModel _usuario;
+
+  @override
+  void initState() {
+    super.initState();
+    _usuario = widget._usuario;
+  }
 
   void changePage(int currentIndex) {
     setState(() {
@@ -24,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _screenBuilder(int index) {
     switch (index) {
       case 0:
-        return const HomeWidget();
+        return  HomeWidget(usuario:_usuario);
       case 1:
         return const SearchScreen();
       case 2:
