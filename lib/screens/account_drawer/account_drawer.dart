@@ -1,6 +1,6 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/account_footer.dart';
-import 'package:fitzone_app/screens/account_drawer/widgets/level.dart';
+import 'package:fitzone_app/screens/account_drawer/widgets/level_widget.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/menu_widget.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/profile_info.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/registration_status.dart';
@@ -30,7 +30,7 @@ class AccountDrawer extends StatelessWidget {
                   SizedBox(
                     height: largeSpacing,
                   ),
-                  Level(
+                  LevelWidget(
                     points: 100,
                   ),
                   SizedBox(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'graph_level.dart';
 
-class Level extends StatefulWidget {
-  const Level({
+class LevelWidget extends StatefulWidget {
+  const LevelWidget({
     required this.points,
     super.key,
   });
@@ -10,10 +10,10 @@ class Level extends StatefulWidget {
   final int points;
 
   @override
-  State<Level> createState() => _LevelState();
+  State<LevelWidget> createState() => _LevelWidgetState();
 }
 
-class _LevelState extends State<Level> {
+class _LevelWidgetState extends State<LevelWidget> {
   final _resultLevel = ["FRANGO", "CLASSIC","SHAPEADO","MONSTRO", "BODYBUILDER"];
   int _level = 1;
 
