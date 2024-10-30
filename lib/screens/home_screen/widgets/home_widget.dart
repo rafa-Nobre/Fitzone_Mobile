@@ -1,5 +1,5 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
-import 'package:fitzone_app/common/theme/colors.dart';
+import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -15,7 +15,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     return SingleChildScrollView(
       child: Container(
         width: double.infinity,
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.tertiary,
         child: Padding(
           padding: const EdgeInsets.all(defaultSpacing),
           child: Column(
@@ -261,153 +261,154 @@ class _HomeWidgetState extends State<HomeWidget> {
                         onTap: () => showModalBottomSheet(
                           context: context,
                           builder: (context) => BottomSheet(
-                            constraints: const BoxConstraints(minHeight: 100),
-                            onClosing: () {},
+                            onClosing: () => Navigator.of(context).pop(),
                             builder: (context) => Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Text("Sexta feira, 16 de Novembro", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromRGBO(0, 0, 0, 0.7)),),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text(
-                                    "Yoga com Prof. Gracyanne",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  const Text(
-                                      "Gracyanne Barbosa vai te guiar numa sessão de yoga que vai te deixar flexível e focado(a). Aqui a gente alonga, relaxa e ainda trabalha aquele bumbum na nuca!"),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(color: const Color.fromRGBO(230, 230, 230, 1), borderRadius: BorderRadius.circular(5)),
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
-                                                child: const Padding(
-                                                  padding: EdgeInsets.all(6.0),
-                                                  child: Icon(Icons.timer_outlined, size: 22,),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 10,),
-                                              const Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("Duração"),
-                                                  Text("45 min")
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
-                                                child: const Padding(
-                                                  padding: EdgeInsets.all(6.0),
-                                                  child: Icon(Icons.wb_sunny_outlined, size: 22,),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 10,),
-                                              const Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("Horário"),
-                                                  Text("08:00")
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
-                                                child: const Padding(
-                                                  padding: EdgeInsets.all(6.0),
-                                                  child: Icon(Icons.stars_sharp, size: 22,),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 10,),
-                                              const Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("Nível"),
-                                                  Text("Iniciante")
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
+                              padding: const EdgeInsets.all(defaultSpacing),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(
+                                      height: 20,
                                     ),
-                                  ),
-                                  const SizedBox(height: 25,),
-                                  Container(
-                                    decoration: BoxDecoration(color: const Color.fromRGBO(230, 230, 230, 1), borderRadius: BorderRadius.circular(5)),
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(16.0),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(20)),
-                                                child: const Padding(
-                                                  padding: EdgeInsets.all(5.0),
-                                                  child: Icon(Icons.check),
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text("Sexta feira, 16 de Novembro", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromRGBO(0, 0, 0, 0.7)),),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Text(
+                                      "Yoga com Prof. Gracyanne",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    const Text(
+                                        "Gracyanne Barbosa vai te guiar numa sessão de yoga que vai te deixar flexível e focado(a). Aqui a gente alonga, relaxa e ainda trabalha aquele bumbum na nuca!"),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(color: const Color.fromRGBO(230, 230, 230, 1), borderRadius: BorderRadius.circular(5)),
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
+                                                  child: const Padding(
+                                                    padding: EdgeInsets.all(6.0),
+                                                    child: Icon(Icons.timer_outlined, size: 22,),
+                                                  ),
                                                 ),
-                                              ),
-                                              const SizedBox(width: 10,),
-                                              const Text("Presença confirmada!", style: TextStyle(fontWeight: FontWeight.bold),)
-                                            ],
+                                                const SizedBox(width: 10,),
+                                                const Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text("Duração"),
+                                                    Text("45 min")
+                                                  ],
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(width: 15,),
-                                        RichText(text: 
-                                        TextSpan(children:[
-                                          TextSpan(text: "2 vagas ", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
-                                          TextSpan(text: "abertas", style: TextStyle(color: Theme.of(context).colorScheme.secondary))
-                                        ] 
-                                        )
-                                        )
-                                      ],
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
+                                                  child: const Padding(
+                                                    padding: EdgeInsets.all(6.0),
+                                                    child: Icon(Icons.wb_sunny_outlined, size: 22,),
+                                                  ),
+                                                ),
+                                                const SizedBox(width: 10,),
+                                                const Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text("Horário"),
+                                                    Text("08:00")
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
+                                                  child: const Padding(
+                                                    padding: EdgeInsets.all(6.0),
+                                                    child: Icon(Icons.stars_sharp, size: 22,),
+                                                  ),
+                                                ),
+                                                const SizedBox(width: 10,),
+                                                const Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text("Nível"),
+                                                    Text("Iniciante")
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 15,),
-                                  Text("Em caso de desistência, por favor desconfirme a presença para liberar a vaga.", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromRGBO(0, 0, 0, 0.7)),),
-                                  const SizedBox(height: 10,),
-                                  Container(
-                                    decoration: BoxDecoration(color: const Color.fromARGB(255, 240, 141, 134), borderRadius: BorderRadius.circular(5)),
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Center(child: Text("Não vou mais comparecer", style: TextStyle(color: Color.fromARGB(255, 163, 12, 1)),)),
+                                    const SizedBox(height: 25,),
+                                    Container(
+                                      decoration: BoxDecoration(color: const Color.fromRGBO(230, 230, 230, 1), borderRadius: BorderRadius.circular(5)),
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(16.0),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(20)),
+                                                  child: const Padding(
+                                                    padding: EdgeInsets.all(5.0),
+                                                    child: Icon(Icons.check),
+                                                  ),
+                                                ),
+                                                const SizedBox(width: 10,),
+                                                const Text("Presença confirmada!", style: TextStyle(fontWeight: FontWeight.bold),)
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(width: 15,),
+                                          RichText(text: 
+                                          TextSpan(children:[
+                                            TextSpan(text: "2 vagas ", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
+                                            TextSpan(text: "abertas", style: TextStyle(color: Theme.of(context).colorScheme.secondary))
+                                          ] 
+                                          )
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  )
-                                ],
+                                    const SizedBox(height: 15,),
+                                    Text("Em caso de desistência, por favor desconfirme a presença para liberar a vaga.", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromRGBO(0, 0, 0, 0.7)),),
+                                    const SizedBox(height: 10,),
+                                    Container(
+                                      decoration: BoxDecoration(color: const Color.fromARGB(255, 240, 141, 134), borderRadius: BorderRadius.circular(5)),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Center(child: Text("Não vou mais comparecer", style: TextStyle(color: Color.fromARGB(255, 163, 12, 1)),)),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -536,26 +537,29 @@ class _HomeWidgetState extends State<HomeWidget> {
                       const SizedBox(
                         width: 25,
                       ),
-                      Container(
-                        height: 163,
-                        width: 163,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .surfaceContainerLow,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: const Stack(
-                          children: [
-                            Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("+"),
-                                  Text("adicionar\natividade")
-                                ],
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).pushNamed(RoutesConsts.calendar),
+                        child: Container(
+                          height: 163,
+                          width: 163,
+                          decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surfaceContainerLow,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Stack(
+                            children: [
+                              Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("+"),
+                                    Text("adicionar\natividade")
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       )
                     ],

@@ -5,5 +5,7 @@ class RoutesConsts {
   static const signUp = '/signup';
   static const settings = '/settings';
   static const forgetPassword = '/forgotpassword';
-  static const devInfo = '/devInfo';
+  static const calendar = '/calendar';
+  static const search = '/search';
+  static const home = '/home';
 }

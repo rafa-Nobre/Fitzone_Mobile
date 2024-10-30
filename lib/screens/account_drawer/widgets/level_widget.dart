@@ -1,33 +1,38 @@
-import 'package:fitzone_app/screens/account_drawer/widgets/GraphLevel.dart';
 import 'package:flutter/material.dart';
+import 'graph_level.dart';
 
-class Level extends StatelessWidget {
-   Level({
+class LevelWidget extends StatefulWidget {
+  const LevelWidget({
     required this.points,
     super.key,
   });
 
- final _resultLevel = ["FRANGO", "CLASSIC","SHAPEADO","MONSTRO", "BODYBUILDER"];
-  int _level = 1;
-
   final int points;
 
+  @override
+  State<LevelWidget> createState() => _LevelWidgetState();
+}
+
+class _LevelWidgetState extends State<LevelWidget> {
+  final _resultLevel = ["FRANGO", "CLASSIC","SHAPEADO","MONSTRO", "BODYBUILDER"];
+  int _level = 1;
+
   int _defineLevel() {
-    if (points <=20) {
-      return this._level = 1;
-    } else if (points <= 40) {
-      return this._level = 2;
-    } else if (points <= 60) {
-      return this._level = 3;
-    } else if (points <= 80) {
-      return this._level = 4;
+    if (widget.points <=20) {
+      return _level = 1;
+    } else if (widget.points <= 40) {
+      return _level = 2;
+    } else if (widget.points <= 60) {
+      return _level = 3;
+    } else if (widget.points <= 80) {
+      return _level = 4;
     } else {
-      return this._level = 5;
+      return _level = 5;
     }
   }
 
    final List<Color> colors = [
-     const Color.fromARGB(255, 76, 114, 0),
+    const Color.fromARGB(255, 76, 114, 0),
     const Color.fromARGB(255, 99, 148, 1),
     const Color.fromARGB(255, 120, 179, 2),
     const Color.fromARGB(255, 146, 220, 0),
@@ -36,7 +41,7 @@ class Level extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-_defineLevel();
+    _defineLevel();
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +60,7 @@ _defineLevel();
                     )),
                 Text(
                   _resultLevel[_level-1],
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -64,7 +69,7 @@ _defineLevel();
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  points.toString(),
+                  widget.points.toString(),
                   style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 ),
                 const Text(" pontos acumulados",

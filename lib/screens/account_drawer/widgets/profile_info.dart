@@ -1,19 +1,19 @@
-import 'package:fitzone_app/common/widgets/Photo.dart';
+import 'package:fitzone_app/common/widgets/photo.dart';
 import 'package:flutter/material.dart';
 
-class Profileinfo extends StatelessWidget {
-  const Profileinfo({
+class ProfileInfo extends StatelessWidget {
+  const ProfileInfo({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Photo(),
+          const Photo(),
           const SizedBox(width: 10),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

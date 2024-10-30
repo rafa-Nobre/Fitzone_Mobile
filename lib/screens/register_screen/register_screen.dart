@@ -1,8 +1,6 @@
-import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/header.dart';
 import 'package:fitzone_app/screens/register_screen/widgets/form_section.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -15,9 +13,8 @@ Widget build(BuildContext context) {
         SliverAppBar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
           elevation: 0,
-          leading: _buildBackButton(),
-          pinned: true, // Keeps the app bar visible at the top
-          expandedHeight: 150.0, // Height for the expanded area
+          pinned: true,
+          expandedHeight: 150.0,
           flexibleSpace: FlexibleSpaceBar(
             title: const Text(
               "Criar conta",
@@ -53,14 +50,14 @@ Widget build(BuildContext context) {
         ),
       ],
     ),
-    floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-      },
-      tooltip: 'Toggle Theme',
-      foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-      child: const Icon(Icons.add),
-    ),
+    // floatingActionButton: FloatingActionButton(
+    //   onPressed: () {
+    //     Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+    //   },
+    //   tooltip: 'Toggle Theme',
+    //   foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+    //   child: const Icon(Icons.add),
+    // ),
   );
 }
 

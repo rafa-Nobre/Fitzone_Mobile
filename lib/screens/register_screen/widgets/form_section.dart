@@ -1,4 +1,4 @@
-import 'package:fitzone_app/common/widgets/form_widgets/InputField.dart';
+import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 
@@ -63,13 +63,16 @@ class FormSection extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12),
-                Text(
-                  'Entrar',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontSize: 14,
-                    fontFamily: 'Lato',
-                    fontWeight: FontWeight.w600,
+                GestureDetector(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: Text(
+                    'Entrar',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 14,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],

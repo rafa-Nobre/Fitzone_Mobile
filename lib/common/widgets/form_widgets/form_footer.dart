@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Footer extends StatelessWidget {
-  const Footer({super.key});
+class FormFooter extends StatelessWidget {
+  const FormFooter({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,10 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
-import 'package:fitzone_app/screens/account_drawer/widgets/ButtonMenu.dart';
+import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
+import 'button_menu.dart';
 
-class Menu extends StatelessWidget {
-  const Menu({
+class MenuWidget extends StatelessWidget {
+  const MenuWidget({
     super.key,
   });
 
@@ -24,7 +25,6 @@ class Menu extends StatelessWidget {
           height: minorSpacing,
         ),
         Container(
-          height: 250,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surfaceContainer,
@@ -32,20 +32,38 @@ class Menu extends StatelessWidget {
                 color: Theme.of(context).colorScheme.surfaceContainerLow),
             borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
-          child: const Column(
+          child: Column(
             children: [
               ButtonMenu(
                 title: "Evolução",
                 icon: Icons.emoji_emotions_outlined,
+                onTap: () {},
               ),
               ButtonMenu(
                 title: "Pagamento",
                 icon: Icons.payment,
+                onTap: () {},
               ),
               ButtonMenu(
-                  title: "Treinos", icon: Icons.sports_gymnastics_outlined),
-              ButtonMenu(title: "Professor", icon: Icons.person_2_outlined),
-              ButtonMenu(title: "Configurações", icon: Icons.settings_outlined),
+                title: "Treinos",
+                icon: Icons.sports_gymnastics_outlined,
+                onTap: () {},
+              ),
+              ButtonMenu(
+                title: "Professor",
+                icon: Icons.person_2_outlined,
+                onTap: () {},
+              ),
+              ButtonMenu(
+                title: "Configurações",
+                icon: Icons.settings_outlined,
+                onTap: () {},
+              ),
+              ButtonMenu(
+                title: "Sair",
+                icon: Icons.logout,
+                onTap: () => Navigator.of(context).popUntil(ModalRoute.withName(RoutesConsts.root)),
+              ),
             ],
           ),
         ),

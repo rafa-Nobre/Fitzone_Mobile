@@ -4,7 +4,7 @@ import 'colors.dart';
 ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
     colorScheme: ColorScheme.light(
-      background: backgroundLight,
+      tertiary: backgroundLight,
       brightness: Brightness.light,
       surface: background2Light,
       surfaceContainer: background2Light,
@@ -52,7 +52,7 @@ ThemeData lightMode = ThemeData(
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
   colorScheme: ColorScheme.light(
-    background: backgroundDark,
+    tertiary: backgroundDark,
     surfaceContainer: background2Dark,
     brightness: Brightness.dark,
     surface: background2Dark,
@@ -95,35 +95,4 @@ ThemeData darkMode = ThemeData(
     )
   ),
   fontFamily: 'Lato',
-
 );
-
-
-// ThemeData globalTheme(BuildContext context) {
-//   return ThemeData(
-//     primaryColor: themeColorLight,
-//     colorScheme: Theme.of(context).colorScheme.copyWith(secondary: secondaryColorLight),
-//     appBarTheme: AppBarTheme(
-//       elevation: 0.0,
-//       iconTheme: const IconThemeData(
-//         color: Colors.white,
-//       ),
-//       color: primaryColorLight,
-//       titleTextStyle: const TextStyle(
-//         color: Colors.white,
-//         fontSize: 18,
-//       ),
-//     ),
-//     scaffoldBackgroundColor: Colors.white,
-//     splashColor: Colors.transparent,
-//     hoverColor: Colors.transparent,
-//     elevatedButtonTheme: ElevatedButtonThemeData(
-//       style: ElevatedButton.styleFrom(
-//         backgroundColor: secondaryColorLight,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(8.0),
-//         ),
-//       ),
-//     ),
-//   );
-// }

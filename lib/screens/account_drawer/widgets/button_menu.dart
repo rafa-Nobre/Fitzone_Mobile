@@ -6,17 +6,18 @@ class ButtonMenu extends StatelessWidget {
   const ButtonMenu({
     required this.title,
     required this.icon, 
-  
+    required this.onTap,
     super.key,
   });
 
   final String title;
   final IconData icon;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: onTap,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
