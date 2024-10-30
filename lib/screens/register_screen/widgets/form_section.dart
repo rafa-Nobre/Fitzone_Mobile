@@ -3,8 +3,19 @@ import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 
 class FormSection extends StatelessWidget {
-  const FormSection({super.key});
+   FormSection({super.key});
+   
+  TextEditingController _matricula = TextEditingController();
+  TextEditingController _nome = TextEditingController();
+  TextEditingController _cpf = TextEditingController(); 
+  TextEditingController _apelido = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _senha = TextEditingController();
+  TextEditingController _confirmarSenha = TextEditingController();
 
+void signUp () {
+
+}
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,19 +24,19 @@ class FormSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const InputField(placeholder: 'Matrícula'),
+             InputField(controller: _matricula , placeholder: 'Matrícula'),
             const SizedBox(height: 8),
-            const InputField(placeholder: 'Nome Completo'),
+            InputField(controller: _nome , placeholder: 'Nome Completo'),
             const SizedBox(height: 8),
-            const InputField(placeholder: 'CPF'),
+            InputField(controller: _cpf, placeholder: 'CPF'),
             const SizedBox(height: 8),
-            const InputField(placeholder: 'Como você gostaria de ser chamado?'),
+             InputField(controller: _apelido, placeholder: 'Como você gostaria de ser chamado?'),
             const SizedBox(height: 8),
-            const InputField(placeholder: 'Email'),
+             InputField(controller:_email, placeholder: 'Email'),
             const SizedBox(height: 8),
-            const InputField(placeholder: 'Senha', isPassword: true),
+             InputField(controller: _senha, placeholder: 'Senha', isPassword: true),
             const SizedBox(height: 8),
-            const InputField(placeholder: 'Confirmar senha', isPassword: true),
+             InputField(controller: _confirmarSenha, placeholder: 'Confirmar senha', isPassword: true),
             const SizedBox(height: 8),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
