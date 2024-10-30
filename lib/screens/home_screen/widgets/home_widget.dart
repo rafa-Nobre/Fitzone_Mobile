@@ -24,7 +24,8 @@ class _HomeWidgetState extends State<HomeWidget> {
               RichText(
                   text: TextSpan(children: [
                 TextSpan(
-                    text: "Olá,", style: Theme.of(context).textTheme.bodyMedium),
+                    text: "Olá,",
+                    style: Theme.of(context).textTheme.bodyMedium),
                 TextSpan(
                     text: " Fulano\u00A0",
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
@@ -41,9 +42,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.surfaceContainerLow,
-                        borderRadius:
-                            BorderRadius.circular(28), // Define o arredondamento
+                        color:
+                            Theme.of(context).colorScheme.surfaceContainerLow,
+                        borderRadius: BorderRadius.circular(
+                            28), // Define o arredondamento
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -55,8 +57,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   borderRadius: BorderRadius.circular(
                                       28), // Define o arredondamento
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Icon(Icons.calendar_month_outlined,
                                       size: 13),
                                 )),
@@ -83,8 +85,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 borderRadius: BorderRadius.circular(
                                     28), // Define o arredondamento
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.directions_bike, size: 13),
                               )),
                           Text("  Atividades",
@@ -97,9 +99,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.surfaceContainerLow,
-                        borderRadius:
-                            BorderRadius.circular(28), // Define o arredondamento
+                        color:
+                            Theme.of(context).colorScheme.surfaceContainerLow,
+                        borderRadius: BorderRadius.circular(
+                            28), // Define o arredondamento
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -111,8 +114,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   borderRadius: BorderRadius.circular(
                                       28), // Define o arredondamento
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Icon(Icons.fitness_center, size: 13),
                                 )),
                             Text("  Treinos",
@@ -127,8 +130,8 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 height: 200,
                 width: 350,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28)),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(28)),
                 child: Stack(
                   children: [
                     Image.asset('assets/images/image.png'),
@@ -138,28 +141,41 @@ class _HomeWidgetState extends State<HomeWidget> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Veja seu treino\nde hoje",
                             style: TextStyle(color: Colors.white, fontSize: 28),
                           ),
-                          SizedBox(height: 35,),
+                          const SizedBox(
+                            height: 35,
+                          ),
                           Row(
                             children: [
-                              Row(
+                              const Row(
                                 children: [
-                                  Text("Ver mais", style: TextStyle(color: Color.fromRGBO(162, 199, 46, 1)),),
-                                  SizedBox(width: 10,),
-                                  Icon(Icons.arrow_forward_ios_outlined, color: Color.fromRGBO(162, 199, 46, 1), size: 10,)
+                                  Text(
+                                    "Ver mais",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(162, 199, 46, 1)),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios_outlined,
+                                    color: Color.fromRGBO(162, 199, 46, 1),
+                                    size: 10,
+                                  )
                                 ],
                               ),
-                              SizedBox(width: 150,),
+                              const SizedBox(
+                                width: 150,
+                              ),
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)
-                                  ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(6.0),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(6.0),
                                   child: Row(
                                     children: [
                                       Icon(Icons.timer_outlined, size: 13),
@@ -176,124 +192,376 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ],
                 ),
               ),
-              SizedBox(height: 30,),
-              Text("METAS DE HOJE"),
-              Column(children: [
-                Row(children: [
-                  Container(
-                    height: 163,
-                    width: 163,
-                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+              const SizedBox(
+                height: 30,
+              ),
+              const Text("METAS DE HOJE"),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 163,
+                        width: 163,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Stack(
                           children: [
-                          Row(children: [
-                            Text("1/7", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 23)),
-                            SizedBox(width: 75,),
-                            Container(
-                              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.black)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Icon(Icons.arrow_outward_outlined),
-                              )
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text("1/7",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge!
+                                              .copyWith(fontSize: 23)),
+                                      const SizedBox(
+                                        width: 75,
+                                      ),
+                                      Container(
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: Colors.black)),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(4.0),
+                                            child: Icon(
+                                                Icons.arrow_outward_outlined),
+                                          ))
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 60,
+                                  ),
+                                  const Text(
+                                    "Treinos diários",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  const Text("você está indo bem!")
+                                ],
+                              ),
                             )
-                          ],),
-                          SizedBox(height: 60,),
-                          Text("Treinos diários", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                          SizedBox(height: 6,),
-                          Text("você está indo bem!")
-                        ],),
-                      )
-                    ],),
-                  ),
-                  SizedBox(width: 25,),
-                  Container(
-                    height: 163,
-                    width: 163,
-                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.surfaceContainerLow, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                          SizedBox(height: 10,),
-                          Icon(Icons.local_fire_department_outlined, size: 55, color: Theme.of(context).colorScheme.primary,),
-                          SizedBox(height: 30,),
-                          Text("Aula de dança", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                          SizedBox(height: 2,),
-                          Text("08:00", style: TextStyle(fontSize: 20))
-                        ],),
+                          ],
+                        ),
                       ),
-                      Positioned(
-                        right: 10,
-                        top: 10,
+                      const SizedBox(
+                        width: 25,
+                      ),
+                      GestureDetector(
+                        onTap: () => showModalBottomSheet(
+                          context: context,
+                          builder: (context) => BottomSheet(
+                            constraints: const BoxConstraints(minHeight: 100),
+                            onClosing: () {},
+                            builder: (context) => Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text("Sexta feira, 16 de Novembro", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromRGBO(0, 0, 0, 0.7)),),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const Text(
+                                    "Yoga com Prof. Gracyanne",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                      "Gracyanne Barbosa vai te guiar numa sessão de yoga que vai te deixar flexível e focado(a). Aqui a gente alonga, relaxa e ainda trabalha aquele bumbum na nuca!"),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(color: const Color.fromRGBO(230, 230, 230, 1), borderRadius: BorderRadius.circular(5)),
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  child: Icon(Icons.timer_outlined, size: 22,),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 10,),
+                                              const Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("Duração"),
+                                                  Text("45 min")
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  child: Icon(Icons.wb_sunny_outlined, size: 22,),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 10,),
+                                              const Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("Horário"),
+                                                  Text("08:00")
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(7)),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  child: Icon(Icons.stars_sharp, size: 22,),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 10,),
+                                              const Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("Nível"),
+                                                  Text("Iniciante")
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 25,),
+                                  Container(
+                                    decoration: BoxDecoration(color: const Color.fromRGBO(230, 230, 230, 1), borderRadius: BorderRadius.circular(5)),
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(20)),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(5.0),
+                                                  child: Icon(Icons.check),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 10,),
+                                              const Text("Presença confirmada!", style: TextStyle(fontWeight: FontWeight.bold),)
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(width: 15,),
+                                        RichText(text: 
+                                        TextSpan(children:[
+                                          TextSpan(text: "2 vagas ", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
+                                          TextSpan(text: "abertas", style: TextStyle(color: Theme.of(context).colorScheme.secondary))
+                                        ] 
+                                        )
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15,),
+                                  Text("Em caso de desistência, por favor desconfirme a presença para liberar a vaga.", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromRGBO(0, 0, 0, 0.7)),),
+                                  const SizedBox(height: 10,),
+                                  Container(
+                                    decoration: BoxDecoration(color: const Color.fromARGB(255, 240, 141, 134), borderRadius: BorderRadius.circular(5)),
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Center(child: Text("Não vou mais comparecer", style: TextStyle(color: Color.fromARGB(255, 163, 12, 1)),)),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                         child: Container(
-                          decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.black)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Icon(Icons.arrow_outward_outlined),
-                          )
+                          height: 163,
+                          width: 163,
+                          decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surfaceContainerLow,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Icon(
+                                      Icons.local_fire_department_outlined,
+                                      size: 55,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    const Text(
+                                      "Aula de dança",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15),
+                                    ),
+                                    const SizedBox(
+                                      height: 2,
+                                    ),
+                                    const Text("08:00",
+                                        style: TextStyle(fontSize: 20))
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                right: 10,
+                                top: 10,
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border:
+                                            Border.all(color: Colors.black)),
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(4.0),
+                                      child: Icon(Icons.arrow_outward_outlined),
+                                    )),
+                              )
+                            ],
+                          ),
                         ),
                       )
-                    ],),
-                  )
-                ],),
-                SizedBox(height: 20,),
-                Row(children: [
-                  Container(
-                    height: 163,
-                    width: 163,
-                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.surfaceContainerLow, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: 163,
+                        width: 163,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerLow,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Stack(
                           children: [
-                          SizedBox(height: 10,),
-                          Icon(Icons.directions_run_outlined, size: 55, color: Theme.of(context).colorScheme.primary,),
-                          SizedBox(height: 30,),
-                          Text("Aula de dança", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                          SizedBox(height: 2,),
-                          Text("08:00", style: TextStyle(fontSize: 20))
-                        ],),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Icon(
+                                    Icons.directions_run_outlined,
+                                    size: 55,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  const Text(
+                                    "Aula de dança",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                  const Text("08:00",
+                                      style: TextStyle(fontSize: 20))
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                              right: 10,
+                              top: 10,
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(color: Colors.black)),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Icon(Icons.arrow_outward_outlined),
+                                  )),
+                            )
+                          ],
+                        ),
                       ),
-                      Positioned(
-                        right: 10,
-                        top: 10,
-                        child: Container(
-                          decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.black)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Icon(Icons.arrow_outward_outlined),
-                          )
+                      const SizedBox(
+                        width: 25,
+                      ),
+                      Container(
+                        height: 163,
+                        width: 163,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerLow,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: const Stack(
+                          children: [
+                            Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("+"),
+                                  Text("adicionar\natividade")
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       )
-                    ],),
-                  ),
-                  SizedBox(width: 25,),
-                  Container(
-                    height: 163,
-                    width: 163,
-                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.surfaceContainerLow, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(children: [
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        
-                          children: [
-                          Text("+"),
-                          Text("adicionar\natividade")
-                        ],),
-                      ),
-                    ],),
+                    ],
                   )
-                ],)
-              ],)
+                ],
+              )
             ],
           ),
         ),
