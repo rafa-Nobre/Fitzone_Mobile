@@ -1,4 +1,4 @@
-import 'package:fitzone_app/common/widgets/form_widgets/InputField.dart';
+import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class FormSection extends StatelessWidget {
       right: 0,
       top: 200,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16), // Add 16px padding here
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

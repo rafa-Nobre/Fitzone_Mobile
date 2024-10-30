@@ -26,7 +26,6 @@ class SignInScreen extends StatelessWidget {
           children: [
             const Header(title: "Bem vindo(a)!",),
             const FormSection(),
-            // const Footer(),
              _buildFooter(),
           ],
         ),

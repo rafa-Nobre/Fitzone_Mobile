@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Link extends StatelessWidget {
-  const Link({
+class LinkText extends StatelessWidget {
+  const LinkText({
     required this.title,
     required this.fontSize,
     required this.color,
@@ -11,6 +11,7 @@ class Link extends StatelessWidget {
   final String title;
   final double fontSize;
   final Color color;
+  
   @override
   Widget build(BuildContext context) {
     return TextButton(

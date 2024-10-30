@@ -1,6 +1,5 @@
-import 'package:fitzone_app/common/widgets/NotificationButton.dart';
-import 'package:fitzone_app/common/widgets/Photo.dart';
-import 'package:fitzone_app/routes/routes_consts.dart';
+import 'package:fitzone_app/common/widgets/notification_button.dart';
+import 'package:fitzone_app/common/widgets/photo.dart';
 import 'package:fitzone_app/screens/home_screen/widgets/home_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -37,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        surfaceTintColor: Theme.of(context).colorScheme.background,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        surfaceTintColor: Theme.of(context).colorScheme.tertiary,
+        backgroundColor: Theme.of(context).colorScheme.tertiary,
         actions: const [NotificationButton(), SizedBox(width: 10), Photo(), SizedBox(width: 10)],
       ),
       body: _screenBuilder(_pageIndex),

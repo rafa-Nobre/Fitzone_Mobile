@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Registrationstatus extends StatelessWidget {
-  const Registrationstatus({
+class RegistrationStatus extends StatelessWidget {
+  const RegistrationStatus({
     super.key,
   });
 

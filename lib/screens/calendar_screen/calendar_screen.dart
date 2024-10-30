@@ -2,8 +2,8 @@ import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/screens/calendar_screen/widgets/event_card.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import '../../common/widgets/NotificationButton.dart';
-import '../../common/widgets/Photo.dart';
+import '../../common/widgets/notification_button.dart';
+import '../../common/widgets/photo.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});

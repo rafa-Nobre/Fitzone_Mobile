@@ -1,8 +1,8 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
-import 'package:fitzone_app/common/widgets/NotificationButton.dart';
-import 'package:fitzone_app/common/widgets/Photo.dart';
-import 'package:fitzone_app/common/widgets/SearchInput.dart';
+import 'package:fitzone_app/common/widgets/notification_button.dart';
+import 'package:fitzone_app/common/widgets/photo.dart';
+import 'package:fitzone_app/common/widgets/search_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,25 +15,25 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        surfaceTintColor: Theme.of(context).colorScheme.background,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        surfaceTintColor: Theme.of(context).colorScheme.tertiary,
+        backgroundColor: Theme.of(context).colorScheme.tertiary,
         actions: const [NotificationButton(), SizedBox(width: 10), Photo()],
       ),
       body: Expanded(
         child: Container(
           width: double.infinity,
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.tertiary,
           child: Padding(
             padding: const EdgeInsets.only(top: defaultSpacing),
             child: Column(children: [
               SearchInput(searchController: _searchController),
-              SizedBox(height: defaultSpacing),
+              const SizedBox(height: defaultSpacing),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  children: <Widget>[
+                  children: const <Widget>[
                     SearchItem(),
                     SearchItem(),
                     SearchItem(),
