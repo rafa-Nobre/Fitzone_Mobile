@@ -2,8 +2,6 @@
 import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/search_screen/search_screen.dart';
-import 'package:fitzone_app/screens/signin_screen/signin_screen.dart';
-import 'package:fitzone_app/screens/register_screen/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,8 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Container(
         width: double.infinity,
         color: Theme.of(context).colorScheme.background,
-        // padding:  const EdgeInsets.only(left: 24, right: 24),
-        child:  const RegisterScreen()),
+        padding:  EdgeInsets.only(left: 24, right: 24),
+        child:  SearchScreen()),
     );
   }
 }
