@@ -1,5 +1,5 @@
 import 'package:fitzone_app/common/widgets/notification_button.dart';
-import 'package:fitzone_app/common/widgets/photo.dart';
+import 'package:fitzone_app/common/widgets/profile_widget.dart';
 import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/home_screen/widgets/home_widget.dart';
 import 'package:fitzone_app/screens/search_screen/search_screen.dart';
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         surfaceTintColor: Theme.of(context).colorScheme.tertiary,
         backgroundColor: Theme.of(context).colorScheme.tertiary,
-        actions: const [NotificationButton(), SizedBox(width: 10), Photo(), SizedBox(width: 10)],
+        actions: const [NotificationButton(), SizedBox(width: 10), ProfileWidget(), SizedBox(width: 10)],
       ),
       drawer: const AccountDrawer(),
       body: _screenBuilder(_pageIndex),

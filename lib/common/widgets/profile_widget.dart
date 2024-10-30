@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Photo extends StatelessWidget {
-  const Photo({
+class ProfileWidget extends StatelessWidget {
+  const ProfileWidget({
     super.key,
   });
 
