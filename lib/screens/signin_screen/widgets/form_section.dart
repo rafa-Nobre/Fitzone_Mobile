@@ -22,7 +22,7 @@ final List<UserModel> _listaUsuarios;
     void signIn() {
       for (var user in _listaUsuarios) {
         if (user.email == _email.text && user.password == _password.text) {
-          Navigator.of(context).pushNamed(RoutesConsts.home);
+          Navigator.of(context).pushNamed(RoutesConsts.home, arguments: user);
           
         }
       }

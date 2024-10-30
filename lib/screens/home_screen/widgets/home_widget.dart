@@ -1,15 +1,22 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
+import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 
 class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+   final UserModel _usuario;
+
+  const HomeWidget({required UserModel usuario, super.key}) : _usuario = usuario;
 
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+
+  late final UserModel _usuario;
+
+  
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
