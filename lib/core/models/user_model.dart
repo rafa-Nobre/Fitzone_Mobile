@@ -9,7 +9,7 @@ class UserModel {
   String cpf;
   String password;
   DateTime registrationDate;
-  int level;
+  int points;
   List<ActivityModel> activities;
 
   UserModel({
@@ -21,7 +21,7 @@ class UserModel {
     required this.cpf,
     required this.password,
     required this.registrationDate,
-    required this.level,
+    required this.points,
     required this.activities
   });
 }
