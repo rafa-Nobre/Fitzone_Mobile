@@ -22,7 +22,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
       todayDate = day;
       if (!isSameDay(day, DateTime.now())) {
         isListVisible = false;
-      }else {
+      } else {
         isListVisible = true;
       }
     });
@@ -30,11 +30,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var _color = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Atividades"),
-        surfaceTintColor: Theme.of(context).colorScheme.primary,
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: const Text("Atividades", style: TextStyle(color: Colors.black),),
+        surfaceTintColor: _color.primary,
+        backgroundColor: _color.primary,
         // actions: const [
         //   NotificationButton(),
         //   SizedBox(width: 10),
@@ -45,13 +46,13 @@ class _CalendarScreenState extends State<CalendarScreen> {
       body: Stack(
         children: [
           Container(
-            color: Theme.of(context).colorScheme.surfaceContainer,
+            color: _color.tertiary,
           ),
           Column(
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: _color.primary,
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       bottomRight: Radius.circular(24)),
@@ -62,13 +63,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       titleCentered: true, formatButtonVisible: false),
                   calendarStyle: CalendarStyle(
                     todayDecoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).colorScheme.surface),
+                        shape: BoxShape.circle, color: _color.surface),
                     todayTextStyle: const TextStyle(color: Colors.black),
                     defaultTextStyle: const TextStyle(color: Colors.white),
                     defaultDecoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).colorScheme.inversePrimary),
+                        shape: BoxShape.circle, color: _color.inversePrimary),
                   ),
                   focusedDay: todayDate,
                   selectedDayPredicate: (day) => isSameDay(day, todayDate),
@@ -88,8 +87,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
               const SizedBox(height: largeSpacing),
               Visibility(
                 visible: isListVisible,
-                child: Padding(
-                  padding: const EdgeInsets.all(defaultSpacing),
+                child: const Padding(
+                  padding: EdgeInsets.all(defaultSpacing),
                   child: Column(
                     children: [
                       EventCard(
@@ -97,11 +96,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         hour: "7:00",
                         isMarked: true,
                       ),
-                      const EventCard(
+                      EventCard(
                           content: "Aula de dança com Prof. Tainá",
                           hour: "14:30",
                           isMarked: false),
-                      const EventCard(
+                      EventCard(
                           content: "Yoga com Prof. Gracyanne",
                           hour: "19:00",
                           isMarked: true),

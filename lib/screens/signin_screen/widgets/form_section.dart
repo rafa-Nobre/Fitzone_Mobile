@@ -29,11 +29,12 @@ class _FormSectionState extends State<FormSection> {
           builder: (context) => HomeScreen(usuario: widget.userModel),
         ),
       );
-    }
+    } 
   }
 
   @override
   Widget build(BuildContext context) {
+        var _color = Theme.of(context).colorScheme;
     return Positioned(
       left: 0,
       right: 0,
@@ -57,7 +58,7 @@ class _FormSectionState extends State<FormSection> {
             ElevatedButton(
               onPressed: () => signIn(context),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.secondary,
+                backgroundColor: _color.secondary,
                 minimumSize: const Size(double.infinity, 52),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -81,7 +82,7 @@ class _FormSectionState extends State<FormSection> {
                   child: Text(
                     "Registrar-se",
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurface),
+                        color: _color.onSurface),
                   ),
                 ),
                 const Spacer(),
@@ -90,7 +91,7 @@ class _FormSectionState extends State<FormSection> {
                   child: Text(
                     'Esqueceu a senha?',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: _color.onSurface,
                       fontSize: 12,
                     ),
                   ),

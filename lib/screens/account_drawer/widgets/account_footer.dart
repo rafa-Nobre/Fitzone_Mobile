@@ -8,13 +8,14 @@ class AccountFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     var _color = Theme.of(context).colorScheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Flexible(
           child: LinkText(
             title: "Política de Privacidade",
-            color: Theme.of(context).colorScheme.onSecondary,
+            color:_color.onSecondary,
             fontSize: 12,
           ),
         ),
@@ -22,7 +23,7 @@ class AccountFooter extends StatelessWidget {
         Flexible(
           child: LinkText(
               title: "Termos de Serviço",
-              color: Theme.of(context).colorScheme.onSecondary,
+              color:_color.onSecondary,
               fontSize: 12),
         ),
       ],

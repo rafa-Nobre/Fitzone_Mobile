@@ -33,8 +33,8 @@ class AccountDrawer extends StatelessWidget {
                   const SizedBox(
                     height: largeSpacing,
                   ),
-                  const LevelWidget(
-                    points: 100,
+                  LevelWidget(
+                    points: profileUser.points,
                   ),
                   const SizedBox(
                     height: largeSpacing,

@@ -17,12 +17,13 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
 
   @override
   Widget build(BuildContext context) {
+    var _color = Theme.of(context).colorScheme;
     return Row(
       children: [
         Checkbox(
           value: isChecked,
-          activeColor: Theme.of(context).colorScheme.secondary,
-          checkColor: Theme.of(context).colorScheme.onSurface,
+          activeColor: _color.secondary,
+          checkColor: _color.onSurface,
           onChanged: (value) {
             setState(() {
               isChecked = value ?? false;
@@ -32,7 +33,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
         Text(
           widget.labelText,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
+            color: _color.onSurface,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),

@@ -20,6 +20,7 @@ class _FormSectionState extends State<FormSection> {
 
   @override
   Widget build(BuildContext context) {
+        var _color = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16),
       child: SingleChildScrollView(
@@ -50,7 +51,7 @@ class _FormSectionState extends State<FormSection> {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.secondary,
+                backgroundColor: _color.secondary,
                 minimumSize: const Size(double.infinity, 52),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -71,7 +72,7 @@ class _FormSectionState extends State<FormSection> {
                 Text(
                   'Já possui uma conta?',
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: _color.onSurface,
                     fontSize: 12,
                   ),
                 ),
@@ -81,7 +82,7 @@ class _FormSectionState extends State<FormSection> {
                   child: Text(
                     'Entrar',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: _color.secondary,
                       fontSize: 14,
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.w600,

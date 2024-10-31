@@ -7,20 +7,21 @@ class NotificationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+         var _color = Theme.of(context).colorScheme;
     return GestureDetector(
       child: Container(
           height: 40,
           width: 40,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: Theme.of(context).colorScheme.surface,
+            color:_color.surface,
             border: Border.all(
-              color: Theme.of(context).colorScheme.surfaceContainerLow,
+              color:_color.surfaceContainerLow,
             ),
           ),
           child: Icon(
             Icons.notifications_none_outlined,
-            color: Theme.of(context).colorScheme.onSurface,
+            color:_color.onSurface,
             size: 20,
           )),
     );

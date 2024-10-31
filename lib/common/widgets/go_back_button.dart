@@ -9,17 +9,18 @@ class GoBackButton extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
+     var _color = Theme.of(context).colorScheme;
     return Row(
       children: [
         IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: _color.onSecondary,
           onPressed: () {},
         ),
         Text(
           title,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSecondary,
+            color: _color.onSecondary,
           ),
         ),
       ],

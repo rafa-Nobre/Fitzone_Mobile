@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Header extends StatelessWidget {
   final String title;
 

@@ -20,27 +20,29 @@ class _SignInScreenState extends State<SignInScreen> {
     password: '123',
     cpf: '12345678900',
     registrationDate: DateTime.now(),
-    level: 1,
+    points: 20,
     activities: [],
   );
 
   @override
   Widget build(BuildContext context) {
+    var _color = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: _color.primary,
         elevation: 0,
       ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(16),
+          color: _color.tertiary,
         ),
         child: Stack(
           children: [
-            const Header(title: "Bem vindo(a)!",),
+            const Header(
+              title: "Bem vindo(a)!",
+            ),
             FormSection(userModel: _userMock),
             _buildFooter(),
           ],
@@ -77,4 +79,3 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
-

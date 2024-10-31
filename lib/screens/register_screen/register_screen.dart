@@ -12,61 +12,61 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-          elevation: 0,
-          pinned: true,
-          expandedHeight: 150.0,
-          flexibleSpace: FlexibleSpaceBar(
-            title: const Text(
-              "Criar conta",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
+  @override
+  Widget build(BuildContext context) {
+    var _color = Theme.of(context).colorScheme;
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: _color.tertiary,
+            elevation: 0,
+            pinned: true,
+            expandedHeight: 150.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: const Text(
+                "Criar conta",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+              ),
+              background: Container(
+                color: _color.tertiary,
+                child: const Header(title: ""),
               ),
             ),
-            background: Container(
-              color: Theme.of(context).colorScheme.surface,
-              child: const Header(title: ""),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: _color.tertiary,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 16),
+                  const FormSection(),
+                  const SizedBox(height: 32),
+                  _buildFooter(),
+                ],
+              ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                 FormSection(),
-                const SizedBox(height: 32),
-                _buildFooter(),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    // floatingActionButton: FloatingActionButton(
-    //   onPressed: () {
-    //     Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-    //   },
-    //   tooltip: 'Toggle Theme',
-    //   foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-    //   child: const Icon(Icons.add),
-    // ),
-  );
-}
+        ],
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+      //   },
+      //   tooltip: 'Toggle Theme',
+      //   foregroundColor: _color.inversePrimary,
+      //   child: const Icon(Icons.add),
+      // ),
+    );
+  }
 
   Widget _buildFooter() {
     return const Padding(
@@ -91,9 +91,8 @@ Widget build(BuildContext context) {
       left: 16,
       child: IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.arrow_back, color: Colors.black),
+        icon: const Icon(Icons.arrow_back, color:Colors.black),
       ),
     );
   }
 }
-

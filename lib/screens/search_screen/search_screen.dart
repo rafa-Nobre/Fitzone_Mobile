@@ -14,9 +14,10 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+      var _color = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: defaultSpacing),
-      color: Theme.of(context).colorScheme.tertiary,
+      color: _color.tertiary,
       child: Padding(
         padding: const EdgeInsets.only(top: defaultSpacing),
         child: Column(
@@ -53,14 +54,15 @@ class SearchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+         var _color = Theme.of(context).colorScheme;
     return Container(
       width: 160,
       height: 200,
       decoration: ShapeDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainer,
+        color: _color.surfaceContainer,
         shape: RoundedRectangleBorder(
           side: BorderSide(
-              color: Theme.of(context).colorScheme.surfaceContainerLow),
+              color: _color.surfaceContainerLow),
           borderRadius: BorderRadius.circular(18),
         ),
       ),

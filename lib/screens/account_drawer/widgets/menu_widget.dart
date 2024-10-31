@@ -10,6 +10,7 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     var _color = Theme.of(context).colorScheme;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +20,7 @@ class MenuWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.onSurface),
+              color: _color.onSurface),
         ),
         const SizedBox(
           height: minorSpacing,
@@ -27,9 +28,9 @@ class MenuWidget extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainer,
+            color: _color.surfaceContainer,
             border: Border.all(
-                color: Theme.of(context).colorScheme.surfaceContainerLow),
+                color: _color.surfaceContainerLow),
             borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
           child: Column(
