@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/routes/app_routes.dart';
@@ -6,7 +7,9 @@ import 'package:provider/provider.dart';
 
 UserModel? user;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
