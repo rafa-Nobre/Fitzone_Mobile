@@ -1,4 +1,5 @@
-import 'activity_model.dart';
+
+import 'workout_model.dart';
 
 class UserModel {
   int id;
@@ -10,7 +11,7 @@ class UserModel {
   String password;
   DateTime registrationDate;
   int points;
-  List<ActivityModel> activities;
+  List<WorkoutModel> activities;
 
   UserModel({
     required this.id,
