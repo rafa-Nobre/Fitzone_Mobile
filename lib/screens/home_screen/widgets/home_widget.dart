@@ -1,34 +1,24 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
-import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 
 class HomeWidget extends StatefulWidget {
-   final UserModel _usuario;
 
-  const HomeWidget({required UserModel currentUser, super.key}) : _usuario = currentUser;
+  const HomeWidget({super.key});
 
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-
-  late final UserModel _usuario;
-
-@override
-void initState() {
-  super.initState();
-  _usuario = widget._usuario;
-}
   
   @override
   Widget build(BuildContext context) {
-    var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       child: Container(
         width: double.infinity,
-        color: _color.tertiary,
+        color: color.tertiary,
         child: Padding(
           padding: const EdgeInsets.all(defaultSpacing),
           child: Column(
@@ -40,9 +30,9 @@ void initState() {
                     text: "Olá, ",
                     style: Theme.of(context).textTheme.bodyMedium),
                 TextSpan(
-                    text: _usuario.nickName,
+                    text: "John Doe",
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        backgroundColor: _color.primary, color: Colors.black))
+                        backgroundColor: color.primary, color: Colors.black))
               ])),
               Text("Preparado para o\ndesafio de hoje?",
                   style: Theme.of(context)
@@ -59,7 +49,7 @@ void initState() {
                         constraints: const BoxConstraints(minWidth: 120),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: _color.surfaceContainerLow,
+                            color: color.surfaceContainerLow,
                             borderRadius: BorderRadius.circular(28),
                           ),
                           child: Padding(
@@ -68,7 +58,7 @@ void initState() {
                               children: [
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: _color.primary,
+                                    color: color.primary,
                                     borderRadius: BorderRadius.circular(28),
                                   ),
                                   child: const Padding(
@@ -90,7 +80,7 @@ void initState() {
                         constraints: const BoxConstraints(minWidth: 120),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: _color.surfaceContainerLow,
+                            color: color.surfaceContainerLow,
                             borderRadius: BorderRadius.circular(28),
                           ),
                           child: Padding(
@@ -99,7 +89,7 @@ void initState() {
                               children: [
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: _color.primary,
+                                    color: color.primary,
                                     borderRadius: BorderRadius.circular(28),
                                   ),
                                   child: const Padding(
@@ -121,7 +111,7 @@ void initState() {
                         constraints: const BoxConstraints(minWidth: 120),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: _color.surfaceContainerLow,
+                            color: color.surfaceContainerLow,
                             borderRadius: BorderRadius.circular(28),
                           ),
                           child: Padding(
@@ -130,7 +120,7 @@ void initState() {
                               children: [
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: _color.primary,
+                                    color: color.primary,
                                     borderRadius: BorderRadius.circular(28),
                                   ),
                                   child: const Padding(
@@ -226,7 +216,7 @@ void initState() {
                         height: 163,
                         width: 163,
                         decoration: BoxDecoration(
-                            color: _color.primary,
+                            color: color.primary,
                             borderRadius: BorderRadius.circular(10)),
                         child: Stack(
                           children: [
@@ -286,7 +276,7 @@ void initState() {
                           builder: (context) => BottomSheet(
                             onClosing: () => Navigator.of(context).pop(),
                             builder: (context) => Container(
-                              color: _color.tertiary,
+                              color: color.tertiary,
                               child: Padding(
                                 padding: const EdgeInsets.all(defaultSpacing),
                                 child: SingleChildScrollView(
@@ -298,7 +288,7 @@ void initState() {
                                       ),
                                       Align(
                                         alignment: Alignment.topLeft,
-                                        child: Text("Sexta feira, 16 de Novembro", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: _color.onPrimary),),
+                                        child: Text("Sexta feira, 16 de Novembro", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: color.onPrimary),),
                                       ),
                                       const SizedBox(
                                         height: 10,
@@ -318,7 +308,7 @@ void initState() {
                                         height: 15,
                                       ),
                                       Container(
-                                        decoration: BoxDecoration(color: _color.primary, borderRadius: BorderRadius.circular(6)),
+                                        decoration: BoxDecoration(color: color.primary, borderRadius: BorderRadius.circular(6)),
                                         child: Row(
                                           children: [
                                             Padding(
@@ -326,7 +316,7 @@ void initState() {
                                               child: Row(
                                                 children: [
                                                   Container(
-                                                    decoration: BoxDecoration(color: _color.surfaceContainer, borderRadius: BorderRadius.circular(7)),
+                                                    decoration: BoxDecoration(color: color.surfaceContainer, borderRadius: BorderRadius.circular(7)),
                                                     child: const Padding(
                                                       padding: EdgeInsets.all(6.0),
                                                       child: Icon(Icons.timer_outlined, size: 22,),
@@ -336,10 +326,10 @@ void initState() {
                                                    Column(
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
-                                                      Text("Duração", style: TextStyle(color: _color.onPrimary),),
+                                                      Text("Duração", style: TextStyle(color: color.onPrimary),),
                                                       Text("45 min",
                                                           style: TextStyle(
-                                                              color: _color
+                                                              color: color
                                                                   .onPrimary))
                                                     ],
                                                   )
@@ -351,7 +341,7 @@ void initState() {
                                               child: Row(
                                                 children: [
                                                   Container(
-                                                    decoration: BoxDecoration(color: _color.surfaceContainer, borderRadius: BorderRadius.circular(7)),
+                                                    decoration: BoxDecoration(color: color.surfaceContainer, borderRadius: BorderRadius.circular(7)),
                                                     child: const Padding(
                                                       padding: EdgeInsets.all(6.0),
                                                       child: Icon(Icons.wb_sunny_outlined, size: 22,),
@@ -363,11 +353,11 @@ void initState() {
                                                     children: [
                                                       Text("Horário",
                                                           style: TextStyle(
-                                                              color: _color
+                                                              color: color
                                                                   .onPrimary)),
                                                       Text("08:00",
                                                           style: TextStyle(
-                                                              color: _color
+                                                              color: color
                                                                   .onPrimary))
                                                     ],
                                                   )
@@ -379,7 +369,7 @@ void initState() {
                                               child: Row(
                                                 children: [
                                                   Container(
-                                                    decoration: BoxDecoration(color: _color.surfaceContainer, borderRadius: BorderRadius.circular(7)),
+                                                    decoration: BoxDecoration(color: color.surfaceContainer, borderRadius: BorderRadius.circular(7)),
                                                     child: const Padding(
                                                       padding: EdgeInsets.all(6.0),
                                                       child: Icon(Icons.stars_sharp, size: 22,),
@@ -391,11 +381,11 @@ void initState() {
                                                     children: [
                                                       Text("Nível",
                                                           style: TextStyle(
-                                                              color: _color
+                                                              color: color
                                                                   .onPrimary)),
                                                       Text("Iniciante",
                                                           style: TextStyle(
-                                                              color: _color
+                                                              color: color
                                                                   .onPrimary))
                                                     ],
                                                   )
@@ -408,7 +398,7 @@ void initState() {
                                       const SizedBox(height: 25,),
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: _color.surfaceContainer, borderRadius: BorderRadius.circular(5)),
+                                            color: color.surfaceContainer, borderRadius: BorderRadius.circular(5)),
                                         child: Row(
                                           children: [
                                             Padding(
@@ -416,7 +406,7 @@ void initState() {
                                               child: Row(
                                                 children: [
                                                   Container(
-                                                    decoration: BoxDecoration(color: _color.surfaceContainer, borderRadius: BorderRadius.circular(20)),
+                                                    decoration: BoxDecoration(color: color.surfaceContainer, borderRadius: BorderRadius.circular(20)),
                                                     child: const Padding(
                                                       padding: EdgeInsets.all(5.0),
                                                       child: Icon(Icons.check),
@@ -431,7 +421,7 @@ void initState() {
                                             RichText(text: 
                                             TextSpan(children:[
                                               TextSpan(text: "2 vagas ", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: "abertas", style: TextStyle(color: _color.secondary))
+                                              TextSpan(text: "abertas", style: TextStyle(color: color.secondary))
                                             ] 
                                             )
                                             )
@@ -439,7 +429,7 @@ void initState() {
                                         ),
                                       ),
                                       const SizedBox(height: 15,),
-                                      Text("Em caso de desistência, por favor desconfirme a presença para liberar a vaga.", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: _color.onPrimary),),
+                                      Text("Em caso de desistência, por favor desconfirme a presença para liberar a vaga.", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: color.onPrimary),),
                                       const SizedBox(height: 10,),
                                       Container(
                                         decoration: BoxDecoration(color: const Color.fromARGB(255, 240, 141, 134), borderRadius: BorderRadius.circular(5)),
@@ -477,7 +467,7 @@ void initState() {
                                       Icons.local_fire_department_outlined,
                                       size: 55,
                                       color:
-                                          _color.primary,
+                                          color.primary,
                                     ),
                                     const SizedBox(
                                       height: 30,
@@ -542,7 +532,7 @@ void initState() {
                                     Icons.directions_run_outlined,
                                     size: 55,
                                     color:
-                                        _color.primary,
+                                        color.primary,
                                   ),
                                   const SizedBox(
                                     height: 30,

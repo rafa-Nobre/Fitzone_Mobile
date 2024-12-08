@@ -1,16 +1,12 @@
 import 'package:fitzone_app/common/widgets/notification_button.dart';
 import 'package:fitzone_app/common/widgets/profile_widget.dart';
-import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/home_screen/widgets/home_widget.dart';
 import 'package:fitzone_app/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  final UserModel _usuario;
-
-  const HomeScreen({required UserModel usuario, super.key})
-      : _usuario = usuario;
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -18,12 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _pageIndex = 0;
-  late UserModel currentUser;
 
   @override
   void initState() {
     super.initState();
-    currentUser = widget._usuario;
   }
 
   void changePage(int currentIndex) {
@@ -35,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _screenBuilder(int index) {
     switch (index) {
       case 0:
-        return HomeWidget(currentUser: currentUser);
+        return const HomeWidget();
       case 1:
         return const SearchScreen();
       case 2:
@@ -49,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
-        surfaceTintColor: _color.tertiary,
-        backgroundColor: _color.tertiary,
+        surfaceTintColor: color.tertiary,
+        backgroundColor: color.tertiary,
         actions: const [
           NotificationButton(),
           SizedBox(width: 10),
@@ -62,13 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(width: 10)
         ],
       ),
-      drawer: AccountDrawer(profileUser: currentUser),
+      drawer: const AccountDrawer(),
       body: _screenBuilder(_pageIndex),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: _color.surfaceContainerLow,
+              color: color.surfaceContainerLow,
               width: 1 
             ),
           ),
@@ -77,25 +71,25 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: _pageIndex,
           onTap: (currentIndex) => changePage(currentIndex),
           showUnselectedLabels: true,
-          backgroundColor: _color.tertiary,
-          selectedItemColor: _color.secondary,
-          unselectedItemColor: _color.onPrimary,
+          backgroundColor: color.tertiary,
+          selectedItemColor: color.secondary,
+          unselectedItemColor: color.onPrimary,
         
           items:  <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               label: "Home",
-              backgroundColor: _color.tertiary,
+              backgroundColor: color.tertiary,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: "Pesquisar",
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.rocket_launch),
               label: "Progresso",
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.account_circle_outlined),
               label: "Perfil",
             ),

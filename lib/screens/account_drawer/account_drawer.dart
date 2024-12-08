@@ -8,12 +8,23 @@ import 'package:flutter/material.dart';
 import '../../core/models/user_model.dart';
 
 class AccountDrawer extends StatelessWidget {
-  const AccountDrawer({super.key, required this.profileUser});
-
-  final UserModel profileUser;
+  const AccountDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    UserModel profileUser = UserModel(
+      id: 1,
+      registrationId: 'reg123',
+      name: 'fulano',
+      nickName: 'fulanoNick',
+      email: 'fulano@example.com',
+      password: '123',
+      cpf: '12345678900',
+      registrationDate: DateTime.now(),
+      points: 20,
+      activities: [],
+    );
+
     return Drawer(
       width: 340,
       child: SafeArea(

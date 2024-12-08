@@ -1,40 +1,41 @@
+import 'package:fitzone_app/common/constants/responses.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
-import 'package:fitzone_app/core/models/user_model.dart';
+import 'package:fitzone_app/common/widgets/snackbar_helper.dart';
+import 'package:fitzone_app/core/service/auth_service.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
-import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class FormSection extends StatefulWidget {
-  const FormSection({
-    super.key,  
-    required this.userModel,
-  });
-
-  final UserModel userModel;
+  const FormSection({super.key});
 
   @override
   State<FormSection> createState() => _FormSectionState();
 }
 
 class _FormSectionState extends State<FormSection> {
+  final GlobalKey<FormState> _formController = GlobalKey<FormState>();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
-  void signIn(BuildContext context) {
-    if (widget.userModel.email == _email.text &&
-        widget.userModel.password == _password.text) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(usuario: widget.userModel),
-        ),
-      );
-    } 
+  Future<void> signIn(BuildContext context) async{
+    if (_formController.currentState != null) {
+      if(_formController.currentState!.validate()) {
+        await AuthService().signIn(email: _email.text, password: _password.text).then((response) {
+          if(response == sucessMessage) {
+            showSnackBar(context, "Seja bem vindo de volta!");
+            Navigator.of(context).pushNamed(RoutesConsts.home);
+          }else {
+            showSnackBar(context, "Ocorreu algum erro ao autenticar!");
+          }
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-        var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
     return Positioned(
       left: 0,
       right: 0,
@@ -44,33 +45,61 @@ class _FormSectionState extends State<FormSection> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             InputField(controller: _email, placeholder: 'Email'),
-            const SizedBox(height: 16),
-             InputField(controller: _password, placeholder: 'Senha', isPassword: true),
-            const SizedBox(height: 24),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomCheckbox(labelText: 'Lembrar de mim'),
-              ],
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () => signIn(context),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: _color.secondary,
-                minimumSize: const Size(double.infinity, 52),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: const Text(
-                'Entrar',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+            Form(
+              key: _formController,
+              child: Column(
+                children: [
+                  InputField(
+                    controller: _email,
+                    placeholder: 'Email',
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Ops, está vazio!";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  InputField(
+                    controller: _password,
+                    placeholder: 'Senha',
+                    isPassword: true,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Ops, está vazio!";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 24),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomCheckbox(labelText: 'Lembrar de mim'),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () => signIn(context),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: color.secondary,
+                      minimumSize: const Size(double.infinity, 52),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Text(
+                      'Entrar',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -82,7 +111,7 @@ class _FormSectionState extends State<FormSection> {
                   child: Text(
                     "Registrar-se",
                     style: TextStyle(
-                        color: _color.onSurface),
+                        color: color.onSurface),
                   ),
                 ),
                 const Spacer(),
@@ -91,7 +120,7 @@ class _FormSectionState extends State<FormSection> {
                   child: Text(
                     'Esqueceu a senha?',
                     style: TextStyle(
-                      color: _color.onSurface,
+                      color: color.onSurface,
                       fontSize: 12,
                     ),
                   ),

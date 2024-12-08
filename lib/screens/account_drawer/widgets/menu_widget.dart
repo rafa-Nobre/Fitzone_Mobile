@@ -1,4 +1,5 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
+import 'package:fitzone_app/core/service/auth_service.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 import 'button_menu.dart';
@@ -10,7 +11,7 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,7 +21,7 @@ class MenuWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: _color.onSurface),
+              color: color.onSurface),
         ),
         const SizedBox(
           height: minorSpacing,
@@ -28,9 +29,9 @@ class MenuWidget extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: _color.surfaceContainer,
+            color: color.surfaceContainer,
             border: Border.all(
-                color: _color.surfaceContainerLow),
+                color: color.surfaceContainerLow),
             borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
           child: Column(
@@ -63,7 +64,11 @@ class MenuWidget extends StatelessWidget {
               ButtonMenu(
                 title: "Sair",
                 icon: Icons.logout,
-                onTap: () => Navigator.of(context).popUntil(ModalRoute.withName(RoutesConsts.root)),
+                onTap: () async {
+                  await AuthService().signOut().whenComplete(() {
+                    Navigator.of(context).pushReplacementNamed(RoutesConsts.login);
+                  });
+                },
               ),
             ],
           ),

@@ -14,12 +14,12 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: _color.tertiary,
+            backgroundColor: color.tertiary,
             elevation: 0,
             pinned: true,
             expandedHeight: 150.0,
@@ -32,7 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               background: Container(
-                color: _color.tertiary,
+                color: color.tertiary,
                 child: const Header(title: ""),
               ),
             ),
@@ -42,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: _color.tertiary,
+                color: color.tertiary,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       //     Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
       //   },
       //   tooltip: 'Toggle Theme',
-      //   foregroundColor: _color.inversePrimary,
+      //   foregroundColor: color.inversePrimary,
       //   child: const Icon(Icons.add),
       // ),
     );
@@ -81,17 +81,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             height: 1.5,
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildBackButton() {
-    return Positioned(
-      top: 40,
-      left: 16,
-      child: IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.arrow_back, color:Colors.black),
       ),
     );
   }

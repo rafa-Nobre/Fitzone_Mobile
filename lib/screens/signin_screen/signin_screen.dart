@@ -11,40 +11,27 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  final _userMock = UserModel(
-    id: 1,
-    registrationId: 'reg123',
-    name: 'fulano',
-    nickName: 'fulanoNick',
-    email: 'fulano@example.com',
-    password: '123',
-    cpf: '12345678900',
-    registrationDate: DateTime.now(),
-    points: 20,
-    activities: [],
-  );
 
   @override
   Widget build(BuildContext context) {
-    var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _color.primary,
+        backgroundColor: color.primary,
         elevation: 0,
       ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: _color.tertiary,
+          color: color.tertiary,
         ),
-        child: Stack(
+        child:  const Stack(
           children: [
-            const Header(
+            Header(
               title: "Bem vindo(a)!",
             ),
-            FormSection(userModel: _userMock),
-            _buildFooter(),
+            FormSection(),
           ],
         ),
       ),
@@ -62,20 +49,20 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget _buildFooter() {
-    return const Positioned(
-      bottom: 32,
-      left: 0,
-      right: 0,
-      child: Text(
-        'Política de Privacidade   Termos de Serviço',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Color(0xFFA9AEB4),
-          fontSize: 12,
-          height: 1.5,
-        ),
-      ),
-    );
-  }
+  // Widget _buildFooter() {
+  //   return const Padding(
+  //     padding: EdgeInsets.only(bottom: 32), // Bottom margin
+  //     child: Center(
+  //       child: Text(
+  //         'Política de Privacidade   Termos de Serviço',
+  //         textAlign: TextAlign.center,
+  //         style: TextStyle(
+  //           color: Color(0xFFA9AEB4),
+  //           fontSize: 12,
+  //           height: 1.5,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
