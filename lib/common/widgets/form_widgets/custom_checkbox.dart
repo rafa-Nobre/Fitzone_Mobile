@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomCheckbox extends StatefulWidget {
   final String labelText;
+  final bool isChecked;
+  final void Function(bool?)? onChanged;
 
   const CustomCheckbox({
     super.key,
     required this.labelText,
+    required this.isChecked,
+    required this.onChanged,
   });
 
   @override
@@ -13,27 +17,22 @@ class CustomCheckbox extends StatefulWidget {
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    var _color = Theme.of(context).colorScheme;
+    var color = Theme.of(context).colorScheme;
     return Row(
       children: [
         Checkbox(
-          value: isChecked,
-          activeColor: _color.secondary,
-          checkColor: _color.onInverseSurface,
-          onChanged: (value) {
-            setState(() {
-              isChecked = value ?? false;
-            });
-          },
+          value: widget.isChecked,
+          activeColor: color.secondary,
+          checkColor: color.onInverseSurface,
+          onChanged: widget.onChanged,
         ),
         Text(
           widget.labelText,
           style: TextStyle(
-            color: _color.onSurface,
+            color: color.onSurface,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),

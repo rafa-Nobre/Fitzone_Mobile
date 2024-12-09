@@ -1,6 +1,8 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
+import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeWidget extends StatefulWidget {
 
@@ -30,7 +32,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     text: "Olá, ",
                     style: Theme.of(context).textTheme.bodyMedium),
                 TextSpan(
-                    text: "John Doe",
+                    text: Provider.of<UserProvider>(context).currentUser?.name ?? "Error_Name",
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         backgroundColor: color.primary, color: Colors.black))
               ])),

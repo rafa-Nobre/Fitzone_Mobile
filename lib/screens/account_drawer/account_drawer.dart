@@ -1,29 +1,18 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
+import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/account_footer.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/level_widget.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/menu_widget.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/profile_info.dart';
 import 'package:fitzone_app/screens/account_drawer/widgets/registration_status.dart';
 import 'package:flutter/material.dart';
-import '../../core/models/user_model.dart';
+import 'package:provider/provider.dart';
 
 class AccountDrawer extends StatelessWidget {
   const AccountDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    UserModel profileUser = UserModel(
-      id: 1,
-      registrationId: 'reg123',
-      name: 'fulano',
-      nickName: 'fulanoNick',
-      email: 'fulano@example.com',
-      password: '123',
-      cpf: '12345678900',
-      registrationDate: DateTime.now(),
-      points: 20,
-      activities: [],
-    );
 
     return Drawer(
       width: 340,
@@ -36,7 +25,7 @@ class AccountDrawer extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  ProfileInfo(profileUser: profileUser),
+                  const ProfileInfo(),
                   const SizedBox(
                     height: defaultSpacing,
                   ),
@@ -45,7 +34,7 @@ class AccountDrawer extends StatelessWidget {
                     height: largeSpacing,
                   ),
                   LevelWidget(
-                    points: profileUser.points,
+                    points: Provider.of<UserProvider>(context).currentUser?.points ?? 0,
                   ),
                   const SizedBox(
                     height: largeSpacing,
