@@ -2,17 +2,47 @@ import 'package:fitzone_app/core/models/personal_model.dart';
 import 'package:fitzone_app/core/models/user_model.dart';
 
 class EventModel {
-  int id;
+  String id;
   String name;
-  PersonalModel assignedPersonal;
-  List<UserModel> assignedUser; 
+  String description;
+  int durationMinutes;
+  String assignedPersonal;
   DateTime date;
+  String category;
 
   EventModel({
     required this.id,
     required this.name,
+    required this.description,
+    required this.durationMinutes,
     required this.date,
-    required this.assignedUser,
-    required this.assignedPersonal
+    required this.assignedPersonal,
+    required this.category
   });
+
+  // Método fromJson
+  factory EventModel.fromJson(String id, Map<String, dynamic> json) {
+    return EventModel(
+      id: id,
+      name: json['name'],
+      description: json['description'],
+      durationMinutes: json['durationMinutes'],
+      date: json['date'],
+      assignedPersonal: json['assignedPersonal'],
+      category: json['category'],
+    );
+  }
+
+  // Método toJson
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'durationMinutes': durationMinutes,
+      'date': date,
+      'assignedPersonal': assignedPersonal,
+      'category': category,
+    };
+  }
 }
