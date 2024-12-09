@@ -71,8 +71,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   ),
                   focusedDay: todayDate,
                   selectedDayPredicate: (day) => isSameDay(day, todayDate),
-                  firstDay: DateTime.utc(2024, 10, 1),
-                  lastDay: DateTime.utc(2024, 11, 29),
+                  firstDay: DateTime(todayDate.year, todayDate.month, 1),
+                  lastDay:DateTime(todayDate.year, todayDate.month + 1, 0),
                   onDaySelected: _onDaySelect,
                 ),
               ),
@@ -84,33 +84,43 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     child: Text("Atividades de hoje",
                         style: Theme.of(context).textTheme.bodyMedium),
                   )),
-              const SizedBox(height: largeSpacing),
-              Visibility(
+
+            Visibility(
                 visible: isListVisible,
-                child: const Padding(
-                  padding: EdgeInsets.all(defaultSpacing),
-                  child: Column(
-                    children: [
-                      EventCard(
-                        content: "Treino com Prof. Ramon Dino",
-                        hour: "7:00",
-                        isMarked: true,
+                child: Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.all(defaultSpacing),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: const [
+                          EventCard(
+                            content: "Treino com Prof. Ramon Dino",
+                            hour: "7:00",
+                            isMarked: true,
+                          ),
+                          EventCard(
+                            content: "Aula de dança com Prof. Tainá",
+                            hour: "14:30",
+                            isMarked: false,
+                          ),
+                          EventCard(
+                            content: "Yoga com Prof. Gracyanne",
+                            hour: "19:00",
+                            isMarked: true,
+                          ),
+                          // Adicione mais EventCards aqui se necessário
+                        ],
                       ),
-                      EventCard(
-                          content: "Aula de dança com Prof. Tainá",
-                          hour: "14:30",
-                          isMarked: false),
-                      EventCard(
-                          content: "Yoga com Prof. Gracyanne",
-                          hour: "19:00",
-                          isMarked: true),
-                    ],
+                    ),
                   ),
                 ),
               ),
               Visibility(
                 visible: !isListVisible,
-                child: const Text("Nenhuma atividade disponível!"),
+                child: Padding(
+                  padding: const EdgeInsets.all(defaultSpacing),
+                  child: const Text("Nenhuma atividade disponível!"),
+                ),
               ),
             ],
           ),

@@ -1,45 +1,34 @@
+import 'package:fitzone_app/core/models/set_model';
+
 class ActivityModel {
   int id;
   String name;
-  String reps;
+  List<SetModel> sets;
   int timesCompleted;
   double maxWeight;
-  List<double> progressWeights;
-  double averageWeight;
 
   ActivityModel({
     required this.id,
     required this.name,
-    required this.reps,
+    this.sets = const [],
     this.timesCompleted = 0,
     this.maxWeight = 0.0,
-    this.averageWeight = 0.0,
-    this.progressWeights = const [],
   });
 
-  // Método fromJson
   factory ActivityModel.fromJson(Map<String, dynamic> json) {
     return ActivityModel(
       id: json['id'],
       name: json['name'],
-      reps: json['reps'],
-      timesCompleted: json['timesCompleted'],
-      maxWeight: json['maxWeight'].toDouble(),
-      averageWeight: json['averageWeight'].toDouble(),
-      progressWeights: List<double>.from(json['progressWeights']),
+      sets:
+          (json['sets'] as List).map((set) => SetModel.fromJson(set)).toList(),
     );
   }
 
-  // Método toJson
   Map<String, dynamic> toJson() {
     return {
       'id': id,
       'name': name,
-      'reps': reps,
-      'timesCompleted': timesCompleted,
-      'maxWeight': maxWeight,
-      'averageWeight': averageWeight,
-      'progressWeights': progressWeights,
+      'sets': sets.map((set) => set.toJson()).toList(),
     };
   }
 }

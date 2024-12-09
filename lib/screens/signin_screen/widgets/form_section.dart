@@ -22,14 +22,14 @@ class _FormSectionState extends State<FormSection> {
   final TextEditingController _password = TextEditingController();
 
   void signIn(BuildContext context) {
-    if (widget.userModel.email == _email.text &&
-        widget.userModel.password == _password.text) {
+    // if (widget.userModel.email == _email.text &&
+    //     widget.userModel.password == _password.text) {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => HomeScreen(usuario: widget.userModel),
         ),
       );
-    } 
+    // } 
   }
 
   @override
