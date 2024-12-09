@@ -21,6 +21,29 @@ class _FormSectionState extends State<FormSection> {
   final TextEditingController _senha = TextEditingController();
   final TextEditingController _confirmarSenha = TextEditingController();
 
+  bool _obscurePassword = true;
+  bool _obscureRepeatPassword = true;
+
+  void setPasswordVisible() {
+    setState(() {
+      if(_obscurePassword) {
+        _obscurePassword = false;
+      }else {
+        _obscurePassword = true;
+      }
+    });
+  }
+
+  void setRepeatPasswordVisible() {
+    setState(() {
+      if(_obscureRepeatPassword) {
+        _obscureRepeatPassword = false;
+      }else {
+        _obscureRepeatPassword = true;
+      }
+    });
+  }
+
   bool termsIsChecked = false;
   void checkTerms(bool? value) {
     setState(() {
@@ -75,6 +98,7 @@ class _FormSectionState extends State<FormSection> {
               InputField(
                 controller: _cpf,
                 placeholder: 'CPF',
+                length: 11,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Campo obrigatório!";
@@ -111,10 +135,15 @@ class _FormSectionState extends State<FormSection> {
               InputField(
                 controller: _senha,
                 placeholder: 'Senha',
-                isPassword: true,
+                isPassword: _obscurePassword,
+                suffixIcon: IconButton(icon: _obscurePassword ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off), onPressed: setPasswordVisible,),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Campo obrigatório!";
+                  } else if (value.length < 8) {
+                    return "Mínimo de 8 caracteres";
+                  } else if(value.contains(' ')) {
+                    return "Não pode conter espaços";
                   } else {
                     return null;
                   }
@@ -124,7 +153,8 @@ class _FormSectionState extends State<FormSection> {
               InputField(
                 controller: _confirmarSenha,
                 placeholder: 'Confirmar senha',
-                isPassword: true,
+                isPassword: _obscureRepeatPassword,
+                suffixIcon: IconButton(icon: _obscureRepeatPassword ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off), onPressed: setRepeatPasswordVisible,),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Campo obrigatório!";
