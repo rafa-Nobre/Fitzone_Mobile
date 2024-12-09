@@ -1,5 +1,4 @@
 import 'package:fitzone_app/common/widgets/form_widgets/header.dart';
-import 'package:fitzone_app/core/models/user_model.dart';
 import 'package:fitzone_app/screens/signin_screen/widgets/form_section.dart';
 import 'package:flutter/material.dart';
 
@@ -48,21 +47,4 @@ class _SignInScreenState extends State<SignInScreen> {
       // ),
     );
   }
-
-  // Widget _buildFooter() {
-  //   return const Padding(
-  //     padding: EdgeInsets.only(bottom: 32), // Bottom margin
-  //     child: Center(
-  //       child: Text(
-  //         'Política de Privacidade   Termos de Serviço',
-  //         textAlign: TextAlign.center,
-  //         style: TextStyle(
-  //           color: Color(0xFFA9AEB4),
-  //           fontSize: 12,
-  //           height: 1.5,
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 }

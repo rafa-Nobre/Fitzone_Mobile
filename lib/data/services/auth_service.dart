@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitzone_app/common/constants/responses.dart';
 
+import '../../core/models/user_model.dart';
+
 class AuthService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -11,15 +13,8 @@ class AuthService {
 
     try {
       UserCredential credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-
-      _firestore.collection("users").doc(credential.user!.uid).set({
-        'id': credential.user!.uid,
-        'cpf': cpf,
-        'email': email,
-        'password': password,
-        'name': name,
-        'nickname': nickname,
-      });
+      UserModel newUser = UserModel(id: credential.user!.uid, registrationId: '${DateTime.now().year}/$cpf', name: name, nickName: nickname, email: email, cpf: cpf, password: password, registrationDate: DateTime.now(), points: 0, activities: [], events: []);
+      _firestore.collection("users").doc(credential.user!.uid).set(newUser.toJson());
       responseMessage = sucessMessage;
     } catch (_) {
       responseMessage = errorMessage;

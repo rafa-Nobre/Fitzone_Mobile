@@ -14,7 +14,6 @@ class FormSection extends StatefulWidget {
 
 class _FormSectionState extends State<FormSection> {
   final GlobalKey<FormState> _formController = GlobalKey<FormState>();
-  final TextEditingController _matricula = TextEditingController();
   final TextEditingController _nome = TextEditingController();
   final TextEditingController _cpf = TextEditingController(); 
   final TextEditingController _apelido = TextEditingController();
@@ -22,9 +21,16 @@ class _FormSectionState extends State<FormSection> {
   final TextEditingController _senha = TextEditingController();
   final TextEditingController _confirmarSenha = TextEditingController();
 
+  bool termsIsChecked = false;
+  void checkTerms(bool? value) {
+    setState(() {
+      termsIsChecked = value ?? false;
+    });
+  }
+
   Future<void> signUpUser(BuildContext context) async {
     if (_formController.currentState != null) {
-      if (_formController.currentState!.validate()) {
+      if (_formController.currentState!.validate() && termsIsChecked) {
         await AuthService().signUp(
           email: _email.text,
           password: _senha.text,
@@ -54,12 +60,6 @@ class _FormSectionState extends State<FormSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              InputField(
-                readOnlyField: true,
-                controller: _matricula,
-                placeholder: 'Matrícula',
-              ),
-              const SizedBox(height: 8),
               InputField(
                 controller: _nome,
                 placeholder: 'Nome Completo',
@@ -136,10 +136,10 @@ class _FormSectionState extends State<FormSection> {
                 },
               ),
               const SizedBox(height: 8),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomCheckbox(labelText: 'Aceito os termos e condições'),
+                  CustomCheckbox(isChecked: termsIsChecked, labelText: 'Aceito os termos e condições', onChanged: checkTerms,),
                 ],
               ),
               const SizedBox(height: 16),

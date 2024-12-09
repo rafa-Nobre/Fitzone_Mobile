@@ -18,6 +18,13 @@ class _FormSectionState extends State<FormSection> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
+  bool rememberMe = false;
+  void checkRemember(bool? value) {
+    setState(() {
+      rememberMe = value ?? false;
+    });
+  }
+
   Future<void> signIn(BuildContext context) async{
     if (_formController.currentState != null) {
       if(_formController.currentState!.validate()) {
@@ -74,10 +81,10 @@ class _FormSectionState extends State<FormSection> {
                     },
                   ),
                   const SizedBox(height: 24),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CustomCheckbox(labelText: 'Lembrar de mim'),
+                      CustomCheckbox(isChecked: rememberMe, labelText: 'Lembrar de mim', onChanged: checkRemember,),
                     ],
                   ),
                   const SizedBox(height: 24),
