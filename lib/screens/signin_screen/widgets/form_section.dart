@@ -2,9 +2,12 @@ import 'package:fitzone_app/common/constants/responses.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:fitzone_app/common/widgets/snackbar_helper.dart';
+import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/data/services/auth_service.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
+import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FormSection extends StatefulWidget {
   const FormSection({super.key});
@@ -42,7 +45,10 @@ class _FormSectionState extends State<FormSection> {
         await AuthService().signIn(email: _email.text, password: _password.text).then((response) {
           if(response == sucessMessage) {
             showSnackBar(context, "Seja bem vindo de volta!");
-            Navigator.of(context).pushNamed(RoutesConsts.home);
+            Navigator.of(context)
+            .push(MaterialPageRoute(builder: 
+            (context) => ChangeNotifierProvider(create: 
+            (context) => UserProvider(), child: const HomeScreen())));
           }else {
             showSnackBar(context, "Ocorreu algum erro ao autenticar!");
           }

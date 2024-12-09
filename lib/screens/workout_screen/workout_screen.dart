@@ -93,6 +93,9 @@ int _getTotalSets(List<ActivityModel> activities) {
                     ),
                     SizedBox(height: minorSpacing),
                     Text(todaysWorkout.name, style: _text.bodyLarge,),
+                     Text(todaysWorkout.notes, style: _text.bodySmall?.copyWith(
+                      color: _color.onSecondary, fontWeight: FontWeight.w400
+                     ),),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 16),
                       height: 1,
