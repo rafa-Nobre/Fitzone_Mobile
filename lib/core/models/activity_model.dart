@@ -1,4 +1,5 @@
-import 'package:fitzone_app/core/models/set_model';
+
+import 'package:fitzone_app/core/models/set_model.dart';
 
 class ActivityModel {
   int id;

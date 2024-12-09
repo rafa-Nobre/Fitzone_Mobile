@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
+import 'package:fitzone_app/core/models/activity_model.dart';
 import 'package:fitzone_app/core/models/workout_model.dart';
 import 'package:fitzone_app/data/providers/workout_provider.dart';
 import 'package:flutter/foundation.dart';
@@ -29,9 +30,14 @@ class WorkoutScreen extends StatelessWidget {
     ];
     var day = now.day;
     var monthName = monthNames[
-        now.month - 1]; // Subtrair 1 porque os índices da lista começam em 0
+        now.month - 1]; 
     var _color = Theme.of(context).colorScheme;
     var _text = Theme.of(context).textTheme;
+
+int _getTotalSets(List<ActivityModel> activities) {
+  return activities.fold(0, (total, activity) => total + activity.sets.length);
+}
+
 
     return FutureBuilder(
       future:
@@ -71,16 +77,27 @@ class WorkoutScreen extends StatelessWidget {
                               ?.copyWith(color: _color.onSecondary),
                         ),
                         SizedBox(height: minorSpacing),
-                        const Row(
+                         Row(
                           children: [
-                            InfoWorkout(title: "Duração", value: "1h 15min"),
-                            InfoWorkout(title: "Exercícios", value: "5"),
-                            InfoWorkout(title: "Séries", value: "26"),
+                            InfoWorkout(title: "Duração", value: todaysWorkout.estimatedTime.toString() + "min"),
+                            InfoWorkout(title: "Exercícios", value: todaysWorkout.activities.length.toString()),
+                            InfoWorkout(title: "Séries", value: _getTotalSets(todaysWorkout.activities).toString() ),
                           ],
                         ),
                       ],
                     ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      height: 1,
+                      color: _color.onSecondary.withOpacity(0.2),
+                    ),
                     SizedBox(height: minorSpacing),
+                    Text(todaysWorkout.name, style: _text.bodyLarge,),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      height: 1,
+                      color: _color.onSecondary.withOpacity(0.2),
+                    ),
                    Expanded(
                       child: ListView.builder(
                         itemCount: todaysWorkout.activities.length,
@@ -90,11 +107,20 @@ class WorkoutScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  todaysWorkout.activities[i].name,
-                                  style: _text.bodyMedium?.copyWith(
-                                    color: _color.primary,
-                                    fontWeight: FontWeight.w500,
+                                Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.symmetric(vertical: 4),
+                                  decoration: BoxDecoration(
+                                    
+                                      color: Color.fromRGBO(25, 33, 38, 1).withOpacity(0.8)
+                                          ),
+                                   
+                                  child: Text(
+                                    todaysWorkout.activities[i].name,
+                                    style: _text.bodyMedium?.copyWith(
+                                      color: _color.primaryContainer,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(height: minorSpacing),
@@ -156,14 +182,27 @@ class WorkoutScreen extends StatelessWidget {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.center,
                                                 children: [
-                                                  Text(
-                                                    todaysWorkout.activities[i]
-                                                        .sets[j].type,
-                                                    style: _text.bodySmall
-                                                        ?.copyWith(
-                                                      color: _color.onSecondary,
-                                                      fontWeight:
-                                                          FontWeight.w400,
+                                                  Container(
+                                                    height: 20,
+                                                    width: 20,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                                                      color: _color.surface.withOpacity(0.2)
+                                                    ),
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.all(1.0),
+                                                      child: Center(
+                                                        child: Text(
+                                                          todaysWorkout.activities[i]
+                                                              .sets[j].type,
+                                                          style: _text.bodySmall
+                                                              ?.copyWith(
+                                                            color: _color.onSecondary,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
                                                   Text(
@@ -187,6 +226,7 @@ class WorkoutScreen extends StatelessWidget {
                                                     ),
                                                   ),
                                                   Checkbox(
+                                                    
                                                     activeColor:
                                                         _color.secondary,
                                                     checkColor:

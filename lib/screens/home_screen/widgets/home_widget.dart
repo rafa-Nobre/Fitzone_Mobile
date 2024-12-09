@@ -329,11 +329,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                    Column(
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
-                                                      Text("Duração", style: TextStyle(color: color.onPrimary),),
+                                                      Text("Duração", style: TextStyle(color: color.onInverseSurface),),
                                                       Text("45 min",
                                                           style: TextStyle(
                                                               color: color
-                                                                  .onPrimary))
+                                                                  .onInverseSurface))
                                                     ],
                                                   )
                                                 ],
@@ -357,11 +357,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       Text("Horário",
                                                           style: TextStyle(
                                                               color: color
-                                                                  .onPrimary)),
+                                                                  .onInverseSurface)),
                                                       Text("08:00",
                                                           style: TextStyle(
                                                               color: color
-                                                                  .onPrimary))
+                                                                  .onInverseSurface))
                                                     ],
                                                   )
                                                 ],
@@ -385,11 +385,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       Text("Nível",
                                                           style: TextStyle(
                                                               color: color
-                                                                  .onPrimary)),
+                                                                  .onInverseSurface)),
                                                       Text("Iniciante",
                                                           style: TextStyle(
                                                               color: color
-                                                                  .onPrimary))
+                                                                  .onInverseSurface))
                                                     ],
                                                   )
                                                 ],

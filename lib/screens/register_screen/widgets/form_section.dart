@@ -2,7 +2,7 @@ import 'package:fitzone_app/common/constants/responses.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/input_field.dart';
 import 'package:fitzone_app/common/widgets/form_widgets/custom_checkbox.dart';
 import 'package:fitzone_app/common/widgets/snackbar_helper.dart';
-import 'package:fitzone_app/core/service/auth_service.dart';
+import 'package:fitzone_app/data/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class FormSection extends StatefulWidget {

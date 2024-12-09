@@ -1,5 +1,5 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
-import 'package:fitzone_app/core/service/auth_service.dart';
+import 'package:fitzone_app/data/services/auth_service.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 import 'button_menu.dart';
