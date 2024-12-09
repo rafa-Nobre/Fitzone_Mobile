@@ -139,69 +139,72 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ],
                 ),
               ),
-              Container(
-                height: 200,
-                width: 350,
-               
-                child: Stack(
-                  children: [
-                    Image.asset('assets/images/image.png'),
-                    Image.asset('assets/images/overlay.png'),
-                    Padding(
-                      padding: const EdgeInsets.all(25.0),
-                      child: Container(
-                     
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Veja seu treino\nde hoje",
-                              style: TextStyle(color: Colors.white, fontSize: 28),
-                            ),
-                            const SizedBox(
-                              height: 35,
-                            ),
-                            Row(
-                              children: [
-                                const Row(
-                                  children: [
-                                    Text(
-                                      "Ver mais",
-                                      style: TextStyle(
-                                          color: Color.fromRGBO(162, 199, 46, 1)),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward_ios_outlined,
-                                      color: Color.fromRGBO(162, 199, 46, 1),
-                                      size: 10,
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(
-                                  width: 150,
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(3.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: const Row(
+              GestureDetector(
+                onTap: () => Navigator.of(context).pushNamed(RoutesConsts.todaysWorkout),
+                child: Container(
+                  height: 200,
+                  width: 350,
+                 
+                  child: Stack(
+                    children: [
+                      Image.asset('assets/images/image.png'),
+                      Image.asset('assets/images/overlay.png'),
+                      Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Container(
+                       
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Veja seu treino\nde hoje",
+                                style: TextStyle(color: Colors.white, fontSize: 28),
+                              ),
+                              const SizedBox(
+                                height: 35,
+                              ),
+                              Row(
+                               
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Row(
                                     children: [
-                                      Icon(Icons.timer_outlined, size: 13),
-                                      Text(" 50 min")
+                                      Text(
+                                        "Ver mais",
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(162, 199, 46, 1)),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_ios_outlined,
+                                        color: Color.fromRGBO(162, 199, 46, 1),
+                                        size: 10,
+                                      )
                                     ],
                                   ),
-                                )
-                              ],
-                            )
-                          ],
+                               
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10)),
+                                    child: const Row(
+                                      children: [
+                                        Icon(Icons.timer_outlined, size: 13, color: Colors.black,),
+                                        Text(" 50 min", style: TextStyle(color: Colors.black),)
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(

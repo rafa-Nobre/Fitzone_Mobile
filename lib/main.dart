@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
 import 'package:fitzone_app/core/models/user_model.dart';
+import 'package:fitzone_app/data/providers/workout_provider.dart';
 import 'package:fitzone_app/routes/app_routes.dart';
 import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:fitzone_app/screens/signin_screen/signin_screen.dart';
@@ -14,8 +15,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => WorkoutProvider()),
+      ],
       child: const MyApp(),
     ),
   );

@@ -23,7 +23,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
         Checkbox(
           value: isChecked,
           activeColor: _color.secondary,
-          checkColor: _color.onSurface,
+          checkColor: _color.onInverseSurface,
           onChanged: (value) {
             setState(() {
               isChecked = value ?? false;

@@ -7,4 +7,5 @@ class RoutesConsts {
   static const calendar = '/calendar';
   static const search = '/search';
   static const home = '/home';
+  static const todaysWorkout = '/todaysworkout';
 }
