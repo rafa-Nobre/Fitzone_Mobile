@@ -12,9 +12,9 @@ class WorkoutService {
     if (response.statusCode == 200) {
       final extractedData = jsonDecode(response.body) as Map<String, dynamic>;
 
-      extractedData.forEach((orderId, orderData) {
+      extractedData.forEach((id, data) {
         loadedWorkouts
-            .add(WorkoutModel.fromJson(orderData)); 
+            .add(WorkoutModel.fromJson(data)); 
       });
     } else {
       throw Exception("Erro ao buscar treinos");

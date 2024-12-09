@@ -1,7 +1,7 @@
 
 import 'activity_model.dart';
 
-enum DifficultyLevel { beginner, intermediate, advanced }
+enum DifficultyLevel { iniciante, intermediario, avancado }
 
 enum DayOfWeek {
   monday,
@@ -14,7 +14,8 @@ enum DayOfWeek {
 }
 
 class WorkoutModel {
-  int id;
+  String id;
+  String name;
   List<String> muscleGroups;
   DayOfWeek dayOfWeek;
   DifficultyLevel difficulty;
@@ -24,6 +25,7 @@ class WorkoutModel {
 
   WorkoutModel({
     required this.id,
+    required this.name,
     required this.muscleGroups,
     required this.dayOfWeek,
     required this.difficulty,
@@ -33,9 +35,10 @@ class WorkoutModel {
   });
 
   // Método fromJson
-  factory WorkoutModel.fromJson(Map<String, dynamic> json) {
+  factory WorkoutModel.fromJson(String id, Map<String, dynamic> json) {
     return WorkoutModel(
-      id: json['id'],
+      id: id,
+      name: json['name'],
       muscleGroups: List<String>.from(json['muscleGroups']),
       dayOfWeek: DayOfWeek.values[json['dayOfWeek']],
       difficulty: DifficultyLevel.values[json['difficulty']],
@@ -51,6 +54,7 @@ class WorkoutModel {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
+      'name': name,
       'muscleGroups': muscleGroups,
       'dayOfWeek': dayOfWeek.index,
       'difficulty': difficulty.index,
