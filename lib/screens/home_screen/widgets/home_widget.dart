@@ -1,4 +1,5 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
+import 'package:fitzone_app/data/providers/event_provider.dart';
 import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,12 @@ class HomeWidget extends StatefulWidget {
 
 class _HomeWidgetState extends State<HomeWidget> {
   
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<EventProvider>(context, listen: false).fetchEvents();
+  }
+
   @override
   Widget build(BuildContext context) {
     var color = Theme.of(context).colorScheme;
@@ -32,7 +39,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     text: "Olá, ",
                     style: Theme.of(context).textTheme.bodyMedium),
                 TextSpan(
-                    text: Provider.of<UserProvider>(context).currentUser?.name ?? "Error_Name",
+                    text: Provider.of<UserProvider>(context).currentUser?.name ?? "[...]",
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         backgroundColor: color.primary, color: Colors.black))
               ])),
@@ -450,62 +457,66 @@ class _HomeWidgetState extends State<HomeWidget> {
                             ),
                           ),
                         ),
-                        child: Container(
-                          height: 163,
-                          width: 163,
-                          decoration: BoxDecoration(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .surfaceContainerLow,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Stack(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Icon(
-                                      Icons.local_fire_department_outlined,
-                                      size: 55,
-                                      color:
-                                          color.primary,
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    const Text(
-                                      "Aula de dança",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                    const SizedBox(
-                                      height: 2,
-                                    ),
-                                    const Text("08:00",
-                                        style: TextStyle(fontSize: 20))
-                                  ],
+                        child: Consumer<EventProvider>(
+                          builder: (context, userProviderModel, child) {
+                            return  Container(
+                            height: 163,
+                            width: 163,
+                            decoration: BoxDecoration(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .surfaceContainerLow,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Stack(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Icon(
+                                        Icons.local_fire_department_outlined,
+                                        size: 55,
+                                        color:
+                                            color.primary,
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      const Text(
+                                        "Aula de dança",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      const Text("08:00",
+                                          style: TextStyle(fontSize: 20))
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                right: 10,
-                                top: 10,
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border:
-                                            Border.all(color: Colors.black)),
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Icon(Icons.arrow_outward_outlined),
-                                    )),
-                              )
-                            ],
-                          ),
+                                Positioned(
+                                  right: 10,
+                                  top: 10,
+                                  child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border:
+                                              Border.all(color: Colors.black)),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Icon(Icons.arrow_outward_outlined),
+                                      )),
+                                )
+                              ],
+                            ),
+                          );
+                          }
                         ),
                       )
                     ],

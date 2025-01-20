@@ -42,7 +42,7 @@ class UserModel {
       'registrationDate': registrationDate.toIso8601String(),
       'points': points,
       'activities': activities.map((activity) => activity.toJson()).toList(),
-      //TODO adicionar eventos
+      'events': events.map((event) => event.toJson()).toList(),
     };
   }
   
@@ -60,7 +60,9 @@ class UserModel {
       activities: (json['activities'] as List)
           .map((activity) => WorkoutModel.fromJson(activity.id, activity))
           .toList(),
-      events: [], //Adicionar eventos como em activities acima
+      events: (json['events'] as List)
+          .map((event) => EventModel.fromJson(event.id, event))
+          .toList(),
     );
   }
 }

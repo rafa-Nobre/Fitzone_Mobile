@@ -16,7 +16,7 @@ class EventProvider with ChangeNotifier {
 
   Future<void> fetchEvents() async {
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/activities.json'));
+      final response = await http.get(Uri.parse('$_baseUrl/events.json'));
 
       if (response.statusCode != 200) {
         throw Exception('Failed to fetch events');

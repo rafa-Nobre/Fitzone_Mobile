@@ -1,5 +1,6 @@
 import 'package:fitzone_app/common/widgets/notification_button.dart';
 import 'package:fitzone_app/common/widgets/profile_widget.dart';
+import 'package:fitzone_app/data/providers/event_provider.dart';
 import 'package:fitzone_app/screens/account_drawer/account_drawer.dart';
 import 'package:fitzone_app/screens/home_screen/widgets/home_widget.dart';
 import 'package:fitzone_app/screens/search_screen/search_screen.dart';
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     Provider.of<UserProvider>(context, listen: false).setCurrentUser();
+    
   }
 
   void changePage(int currentIndex) {
@@ -33,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _screenBuilder(int index) {
     switch (index) {
       case 0:
-        return const HomeWidget();
+        return ChangeNotifierProvider(create: (context) => EventProvider(), child: const HomeWidget());
       case 1:
         return const SearchScreen();
       case 2:
