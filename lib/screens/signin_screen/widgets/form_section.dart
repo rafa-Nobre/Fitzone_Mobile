@@ -18,6 +18,17 @@ class _FormSectionState extends State<FormSection> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
+  bool obscurePassword = true;
+  void setVisible() {
+    setState(() {
+      if(obscurePassword) {
+        obscurePassword = false;
+      }else {
+        obscurePassword = true;
+      }
+    });
+  }
+
   bool rememberMe = false;
   void checkRemember(bool? value) {
     setState(() {
@@ -71,7 +82,8 @@ class _FormSectionState extends State<FormSection> {
                   InputField(
                     controller: _password,
                     placeholder: 'Senha',
-                    isPassword: true,
+                    isPassword: obscurePassword,
+                    suffixIcon: IconButton(icon: obscurePassword ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off), onPressed: setVisible,),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Ops, está vazio!";
