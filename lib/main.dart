@@ -17,6 +17,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => WorkoutProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
       child: const MyApp(),
     ),
@@ -32,18 +33,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitZone',
       routes: appRoutes,
-      home: ChangeNotifierProvider(
-        create:(context) => UserProvider(),
-        child: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if(snapshot.hasData) {
-              return const HomeScreen();
-            }else {
-              return const SignInScreen();
-            }
-          },
-        ),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if(snapshot.hasData) {
+            return const HomeScreen();
+          }else {
+            return const SignInScreen();
+          }
+        },
       ),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );

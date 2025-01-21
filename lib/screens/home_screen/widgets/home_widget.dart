@@ -4,6 +4,8 @@ import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'qr_scanner_container.dart';
+
 class HomeWidget extends StatefulWidget {
 
   const HomeWidget({super.key});
@@ -401,36 +403,40 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                       ),
                                       const SizedBox(height: 25,),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            color: color.surfaceContainer, borderRadius: BorderRadius.circular(5)),
-                                        child: Row(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.all(16.0),
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                    decoration: BoxDecoration(color: color.surfaceContainer, borderRadius: BorderRadius.circular(20)),
-                                                    child: const Padding(
-                                                      padding: EdgeInsets.all(5.0),
-                                                      child: Icon(Icons.check),
+                                      const QRScannerContainer(),
+                                      Visibility(
+                                        visible: false,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: color.surfaceContainer, borderRadius: BorderRadius.circular(5)),
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.all(16.0),
+                                                child: Row(
+                                                  children: [
+                                                    Container(
+                                                      decoration: BoxDecoration(color: color.surfaceContainer, borderRadius: BorderRadius.circular(20)),
+                                                      child: const Padding(
+                                                        padding: EdgeInsets.all(5.0),
+                                                        child: Icon(Icons.check),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(width: 10,),
-                                                  const Text("Presença confirmada!", style: TextStyle(fontWeight: FontWeight.bold),)
-                                                ],
+                                                    const SizedBox(width: 10,),
+                                                    const Text("Presença confirmada!", style: TextStyle(fontWeight: FontWeight.bold),)
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                            const SizedBox(width: 15,),
-                                            RichText(text: 
-                                            TextSpan(children:[
-                                              TextSpan(text: "2 vagas ", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: "abertas", style: TextStyle(color: color.secondary))
-                                            ] 
-                                            )
-                                            )
-                                          ],
+                                              const SizedBox(width: 15,),
+                                              RichText(text: 
+                                              TextSpan(children:[
+                                                TextSpan(text: "2 vagas ", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
+                                                TextSpan(text: "abertas", style: TextStyle(color: color.secondary))
+                                              ] 
+                                              )
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(height: 15,),
