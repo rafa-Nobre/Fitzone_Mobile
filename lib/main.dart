@@ -7,7 +7,6 @@ import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/data/providers/workout_provider.dart';
 import 'package:fitzone_app/data/services/notification_service.dart';
 import 'package:fitzone_app/routes/app_routes.dart';
-import 'package:fitzone_app/routes/routes_consts.dart'; 
 import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:fitzone_app/screens/signin_screen/signin_screen.dart';
 import 'package:flutter/material.dart';
