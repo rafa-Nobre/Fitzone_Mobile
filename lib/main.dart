@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
+import 'package:fitzone_app/core/models/custom_notification.dart';
 import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/data/providers/workout_provider.dart';
+import 'package:fitzone_app/data/services/notification_service.dart';
 import 'package:fitzone_app/routes/app_routes.dart';
+import 'package:fitzone_app/routes/routes_consts.dart'; 
 import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:fitzone_app/screens/signin_screen/signin_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +17,32 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await Geolocator.requestPermission();
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => WorkoutProvider()),
+        Provider<NotificationService>(create: (context) => NotificationService()),
       ],
       child: const MyApp(),
     ),
   );
+}
+
+showNotification (){
+  setState(() {
+    
+    if (valor){
+      Provider.of<NotificationService>(context, listen: false).showNotification(
+        CustomNotification(
+          title: 'FitZone',
+          body: 'Time to workout!',
+          payload: RoutesConsts().todaysWorkout,
+        ),
+      );
+    }
+  })
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +53,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FitZone',
-      routes: appRoutes,
+   routes: Routes().appRoutes,
+
       home: ChangeNotifierProvider(
         create:(context) => UserProvider(),
         child: StreamBuilder(
