@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../data/providers/user_provider.dart';
+import '../profile_screen/profile_screen.dart';
+import '../progress_screen/progress_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,9 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         return const SearchScreen();
       case 2:
-        return const SizedBox();
+        return const ProgressScreen();
       case 3:
-        return const SizedBox();
+        return const ProfileScreen();
       default:
         return const SizedBox();
     }
@@ -78,24 +80,26 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: color.tertiary,
           selectedItemColor: color.secondary,
           unselectedItemColor: color.onPrimary,
-        
           items:  <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: const Icon(Icons.home),
               label: "Home",
               backgroundColor: color.tertiary,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.search),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.search),
               label: "Pesquisar",
+              backgroundColor: color.tertiary,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.rocket_launch),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.rocket_launch),
               label: "Progresso",
+              backgroundColor: color.tertiary,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.account_circle_outlined),
               label: "Perfil",
+              backgroundColor: color.tertiary,
             ),
           ],
         ),
