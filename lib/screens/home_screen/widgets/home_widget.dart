@@ -3,6 +3,7 @@ import 'package:fitzone_app/data/providers/event_provider.dart';
 import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -458,7 +459,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                         child: Consumer<EventProvider>(
-                          builder: (context, userProviderModel, child) {
+                          builder: (context, eventProviderModel, child) {
+                            final events = eventProviderModel.events;
+                            final lastEvent = events[events.length - 1];
                             return  Container(
                             height: 163,
                             width: 163,
@@ -486,8 +489,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       const SizedBox(
                                         height: 30,
                                       ),
-                                      const Text(
-                                        "Aula de dança",
+                                      Text(
+                                        lastEvent.name,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15),
@@ -495,7 +498,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       const SizedBox(
                                         height: 2,
                                       ),
-                                      const Text("08:00",
+                                      Text(DateFormat('HH:mm').format(lastEvent.date),
                                           style: TextStyle(fontSize: 20))
                                     ],
                                   ),
@@ -526,61 +529,67 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ),
                   Row(
                     children: [
-                      Container(
-                        height: 163,
-                        width: 163,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .surfaceContainerLow,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 10,
+                      Consumer<EventProvider>(
+                        builder: (context, eventProviderModel, child) {
+                          final events = eventProviderModel.events;
+                          final secondLastEvent = events[events.length - 2];
+                          return Container(
+                            height: 163,
+                            width: 163,
+                            decoration: BoxDecoration(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .surfaceContainerLow,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Stack(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Icon(
+                                        Icons.directions_run_outlined,
+                                        size: 55,
+                                        color:
+                                            color.primary,
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      Text(
+                                        secondLastEvent.name,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text(DateFormat('HH:mm').format(secondLastEvent.date),
+                                          style: TextStyle(fontSize: 20))
+                                    ],
                                   ),
-                                  Icon(
-                                    Icons.directions_run_outlined,
-                                    size: 55,
-                                    color:
-                                        color.primary,
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  const Text(
-                                    "Aula de dança",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                  ),
-                                  const SizedBox(
-                                    height: 2,
-                                  ),
-                                  const Text("08:00",
-                                      style: TextStyle(fontSize: 20))
-                                ],
-                              ),
+                                ),
+                                Positioned(
+                                  right: 10,
+                                  top: 10,
+                                  child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: Colors.black)),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Icon(Icons.arrow_outward_outlined),
+                                      )),
+                                )
+                              ],
                             ),
-                            Positioned(
-                              right: 10,
-                              top: 10,
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(color: Colors.black)),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Icon(Icons.arrow_outward_outlined),
-                                  )),
-                            )
-                          ],
-                        ),
+                          );
+                        }
                       ),
                       const SizedBox(
                         width: 25,

@@ -5,7 +5,7 @@ import 'workout_model.dart';
 
 class UserModel {
   String id;
-  String registrationId;
+  String? registrationId;
   String name;
   String nickName;
   String email;
@@ -61,7 +61,7 @@ class UserModel {
           .map((activity) => WorkoutModel.fromJson(activity.id, activity))
           .toList(),
       events: (json['events'] as List)
-          .map((event) => EventModel.fromJson(event.id, event))
+          .map((event) => EventModel.fromJson(event))
           .toList(),
     );
   }

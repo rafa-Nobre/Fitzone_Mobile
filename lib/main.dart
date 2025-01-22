@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitzone_app/common/theme/theme_provider.dart';
+import 'package:fitzone_app/data/providers/event_provider.dart';
 import 'package:fitzone_app/data/providers/user_provider.dart';
 import 'package:fitzone_app/data/providers/workout_provider.dart';
 import 'package:fitzone_app/routes/app_routes.dart';
@@ -17,6 +18,8 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => WorkoutProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(create: (context) => EventProvider()),
       ],
       child: const MyApp(),
     ),
@@ -32,18 +35,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitZone',
       routes: appRoutes,
-      home: ChangeNotifierProvider(
-        create:(context) => UserProvider(),
-        child: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if(snapshot.hasData) {
-              return const HomeScreen();
-            }else {
-              return const SignInScreen();
-            }
-          },
-        ),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if(snapshot.hasData) {
+            return const HomeScreen();
+          }else {
+            return const SignInScreen();
+          }
+        },
       ),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );

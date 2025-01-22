@@ -21,13 +21,13 @@ class EventModel {
   });
 
   // Método fromJson
-  factory EventModel.fromJson(String id, Map<String, dynamic> json) {
+  factory EventModel.fromJson(Map<String, dynamic> json) {
     return EventModel(
-      id: id,
+      id: json['id'],
       name: json['name'],
       description: json['description'],
       durationMinutes: json['durationMinutes'],
-      date: json['date'],
+      date: DateTime.parse(json['date']),
       assignedPersonal: json['assignedPersonal'],
       category: json['category'],
     );

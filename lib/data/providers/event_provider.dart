@@ -22,18 +22,18 @@ class EventProvider with ChangeNotifier {
         throw Exception('Failed to fetch events');
       }
 
-      final Map<String, dynamic> data = json.decode(response.body) ?? {};
+      final List<dynamic> data = json.decode(response.body) ?? [];
       final List<EventModel> loadedEvents = [];
 
-      data.forEach((eventId, eventData) {
+      for (var eventData in data) {
         final event = EventModel.fromJson(
-          eventId,
           eventData,
         );
         loadedEvents.add(event);
-      });
+      }
 
       _events = loadedEvents;
+      print('Response: ${_events}');
       notifyListeners();
     } catch (error) {
       print('Error fetching events: $error');
