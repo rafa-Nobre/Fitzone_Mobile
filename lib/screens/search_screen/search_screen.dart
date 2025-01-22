@@ -1,6 +1,9 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/widgets/search_input.dart';
+import 'package:fitzone_app/routes/routes_consts.dart';
+import 'package:fitzone_app/screens/search_screen/widget/map_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -11,10 +14,10 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
-
+  static const LatLng _pGooglePlex = LatLng(-5.8083926, -35.2121122);
   @override
   Widget build(BuildContext context) {
-      var _color = Theme.of(context).colorScheme;
+    var _color = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: defaultSpacing),
       color: _color.tertiary,
@@ -29,9 +32,37 @@ class _SearchScreenState extends State<SearchScreen> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
-                children: const <Widget>[
-                  SearchItem(),
-                  SearchItem(),
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                       Navigator.pushNamed(context, RoutesConsts.map);
+                    },
+                    child: Container(
+                      decoration: ShapeDecoration(
+                        color: _color.surfaceContainer,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: _color.surfaceContainerLow),
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(18),
+                        child: Center(
+                          // Centraliza o ícone no Container
+                          child: Icon(
+                            Icons.location_on, // Ícone de local
+                            size: 80, // Tamanho do ícone
+                            color: _color.onSecondaryContainer, // Cor do ícone
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RoutesConsts.map);
+                      },
+                      child: SearchItem()),
                   SearchItem(),
                   SearchItem(),
                   SearchItem(),
@@ -54,15 +85,14 @@ class SearchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-         var _color = Theme.of(context).colorScheme;
+    var _color = Theme.of(context).colorScheme;
     return Container(
       width: 160,
       height: 200,
       decoration: ShapeDecoration(
         color: _color.surfaceContainer,
         shape: RoundedRectangleBorder(
-          side: BorderSide(
-              color: _color.surfaceContainerLow),
+          side: BorderSide(color: _color.surfaceContainerLow),
           borderRadius: BorderRadius.circular(18),
         ),
       ),
