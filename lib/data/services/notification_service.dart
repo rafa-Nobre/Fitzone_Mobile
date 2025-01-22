@@ -3,9 +3,9 @@ import 'package:fitzone_app/routes/app_routes.dart';
 import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 
 class NotificationService {
   late FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
@@ -32,7 +32,7 @@ class NotificationService {
 Future<void> _setupTimezone() async {
  tz.initializeTimeZones();
 
-final String? timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+final String? timeZoneName = await FlutterTimezone.getLocalTimezone();
 tz.setLocalLocation(tz.getLocation(timeZoneName!));
   }
 
