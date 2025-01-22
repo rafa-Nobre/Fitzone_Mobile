@@ -24,26 +24,27 @@ void main() async {
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => WorkoutProvider()),
         Provider<NotificationService>(create: (context) => NotificationService()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
       child: const MyApp(),
     ),
   );
 }
 
-showNotification (){
-  setState(() {
+// showNotification (){
+//   setState(() {
     
-    if (valor){
-      Provider.of<NotificationService>(context, listen: false).showNotification(
-        CustomNotification(
-          title: 'FitZone',
-          body: 'Time to workout!',
-          payload: RoutesConsts().todaysWorkout,
-        ),
-      );
-    }
-  })
-}
+//     if (valor){
+//       Provider.of<NotificationService>(context, listen: false).showNotification(
+//         CustomNotification(
+//           title: 'FitZone',
+//           body: 'Time to workout!',
+//           payload: RoutesConsts().todaysWorkout,
+//         ),
+//       );
+//     }
+//   })
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -53,20 +54,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FitZone',
-   routes: Routes().appRoutes,
-
-      home: ChangeNotifierProvider(
-        create:(context) => UserProvider(),
-        child: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if(snapshot.hasData) {
-              return const HomeScreen();
-            }else {
-              return const SignInScreen();
-            }
-          },
-        ),
+      routes: Routes().appRoutes,
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if(snapshot.hasData) {
+            return const HomeScreen();
+          }else {
+            return const SignInScreen();
+          }
+        },
       ),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
