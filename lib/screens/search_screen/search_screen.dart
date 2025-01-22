@@ -1,5 +1,6 @@
 import 'package:fitzone_app/common/constants/metrics.dart';
 import 'package:fitzone_app/common/widgets/search_input.dart';
+import 'package:fitzone_app/routes/routes_consts.dart';
 import 'package:fitzone_app/screens/search_screen/widget/map_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -34,10 +35,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MapPage()),
-                      );
+                       Navigator.pushNamed(context, RoutesConsts.map);
                     },
                     child: Container(
                       decoration: ShapeDecoration(
@@ -49,24 +47,22 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
-                        child: GoogleMap(
-                          initialCameraPosition:
-                              CameraPosition(target: _pGooglePlex, zoom: 2),
-                          mapType: MapType.normal,
-                          onMapCreated: (GoogleMapController controller) {
-},
+                        child: Center(
+                          // Centraliza o ícone no Container
+                          child: Icon(
+                            Icons.location_on, // Ícone de local
+                            size: 80, // Tamanho do ícone
+                            color: _color.onSecondaryContainer, // Cor do ícone
+                          ),
                         ),
                       ),
                     ),
                   ),
                   GestureDetector(
-                     onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MapPage()),
-                        );
+                      onTap: () {
+                        Navigator.pushNamed(context, RoutesConsts.map);
                       },
-                    child: SearchItem()),
+                      child: SearchItem()),
                   SearchItem(),
                   SearchItem(),
                   SearchItem(),

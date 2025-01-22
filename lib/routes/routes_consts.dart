@@ -8,4 +8,5 @@ class RoutesConsts {
   static const search = '/search';
   static const home = '/home';
   static const todaysWorkout = '/todaysworkout';
+  static const map = '/map';
 }

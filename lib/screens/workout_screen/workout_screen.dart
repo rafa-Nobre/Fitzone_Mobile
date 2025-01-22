@@ -51,10 +51,6 @@ int _getTotalSets(List<ActivityModel> activities) {
           return Center(
             child: Text("Erro ao carregar treinos: ${snapshot.error}"),
           );
-        } else if (!snapshot.hasData || (snapshot.data as List).isEmpty) {
-          return const Center(
-            child: Text("Nenhum treino disponível"),
-          );
         } else {
           final provider = Provider.of<WorkoutProvider>(context);
           final todaysWorkout = provider.todaysWorkout;

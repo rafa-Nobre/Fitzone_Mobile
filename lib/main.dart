@@ -8,10 +8,12 @@ import 'package:fitzone_app/screens/home_screen/home_screen.dart';
 import 'package:fitzone_app/screens/signin_screen/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await Geolocator.requestPermission();
   runApp(
     MultiProvider(
       providers: [
