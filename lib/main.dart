@@ -21,7 +21,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => WorkoutProvider()),
-        Provider<NotificationService>(create: (context) => NotificationService()),
+        // Provider<NotificationService>(create: (context) => NotificationService()),
         ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
       child: const MyApp(),
